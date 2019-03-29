@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1553873573 source:d:\11111trabajopractico\main.c
+	<stdio.h>
+	<stdlib.h>
+	"biblioteca.h"
+
+1553872265 source:d:\11111trabajopractico\biblioteca.c
+	"biblioteca.h"
+
+1553872759 d:\11111trabajopractico\biblioteca.h
+
