@@ -24,6 +24,7 @@ int main()
 
             case 2:
                 printf("Estoy ingresando el segundo operando\n");
+                operando=pedirOperando("ingrese el operando: ");
                 break;
 
             case 3:
@@ -54,9 +55,10 @@ int main()
 
 int pedirOperando(char texto2[])
 {
-    float operando;
+    int operando;
     printf("%s",texto2);
 
-    scanf("%f",&operando);
+    scanf("%d",&operando);
+    printf("el operando es %d\n",operando);
 }
 
