@@ -1,43 +1,55 @@
 
-
 #include <stdlib.h>
 #include "biblioteca.h"
 
-
-
 int main()
 {
-   int opcion;
-   char seguir = 's';
-   float A;
-   float B;
-   float resultado;
+    int sePudoDividir;
+    int sumar;
+    int restar;
+    float respuestaDivision;
+    float respuestaSuma;
+    float respuestaResta;
+    int datoA;
+    int datoB;
+    int opcion;
+    char seguir='s';
 
-   do
-   {
+
+    do
+    {
         opcion = pedirOpcionMenu(" 1. Ingrese el primer operando\n 2. Ingrese el segundo operando\n 3. Calcular operaciones\n 4. Informar Resultados\n 5. Salir\n");
-
         switch(opcion)
         {
             case 1:
-                printf("Ingresando el primer operando...\n");
-                A=pedirOperando("ingrese el operando: ");
+                pedirDato(&datoA);
                 break;
 
             case 2:
-                printf("Ingresando el segundo operando...\n");
-                B=pedirOperando("ingrese el operando: ");
+                pedirDato(&datoB);
                 break;
 
             case 3:
-                printf("Calculando operaciones...\n");
-                resultado=A+B;
+                sePudoDividir=dividir(datoA,datoB,&respuestaDivision);
+                sumar=suma(datoA,datoB,&respuestaSuma);
+                restar=resta(datoA,datoB,&respuestaResta);
 
                 break;
 
             case 4:
-                printf("Los resultados son: \n");
-                printf("%f\n",resultado);
+
+                printf("la respuesta de la suma es %f\n ",respuestaSuma);
+
+                printf("la respuesta de la resta es %f\n",respuestaResta);
+
+                if(sePudoDividir==1)
+                {
+                    printf("la respuesta de la division es %f\n",respuestaDivision);
+                }
+                else
+                {
+                    printf("ERROR, no se puede hacer . . .\n");
+                }
                 break;
 
             case 5:
@@ -47,12 +59,16 @@ int main()
             default:
                 printf("Opcion incorrecta, reingrese\n");
                 break;
-       }
-       system("pause");
-       system("cls");
-   }while(seguir=='s');
-    return 0;
+        }
+        system("pause");
+        system("cls");
+    }while(seguir=='s');
+
+
+
+
 }
+
 
 
 

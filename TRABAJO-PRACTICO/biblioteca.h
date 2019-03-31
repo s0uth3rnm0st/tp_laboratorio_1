@@ -9,10 +9,16 @@
  *
  */
  /***********************************************/
+
 int pedirOpcionMenu(char texto[]);
 
-float pedirOperando(char texto[]);
+int suma(int datoA, int datoB, float *resultado);
 
-float calcularOperaciones(char texto[]);
+int dividir(int datoA, int datoB, float *resultado);
+
+int pedirDato(int *dato);
+
+int resta(int datoA, int datoB, float *resultado);
+
 
 #endif // BIBLIOTECA_H_INCLUDED
