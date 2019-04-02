@@ -8,11 +8,12 @@ int main()
     int sumar;
     int restar;
     int multiplicar;
-    int sacarFactorial;
+    int sacarFactorialDatoA;
     float respuestaDivision;
     float respuestaSuma;
     float respuestaResta;
     float respuestaMultiplicacion;
+    float respuestaFactorialDatoA;
     int datoA;
     int datoB;
     int opcion;
@@ -37,6 +38,7 @@ int main()
                 sumar=suma(datoA,datoB,&respuestaSuma);
                 restar=resta(datoA,datoB,&respuestaResta);
                 multiplicar=multiplicacion(datoA,datoB,&respuestaMultiplicacion);
+                sacarFactorialDatoA=factorial(5);
                 break;
 
             case 4:
@@ -55,6 +57,10 @@ int main()
                 }
 
                 printf("la respuesta de la multiplicacion es %f\n",respuestaMultiplicacion);
+
+                printf("el factorial del primer dato  es %f\n",respuestaFactorialDatoA);
+
+                printf("El factorial es: %d\n",sacarFactorialDatoA);
 
                 break;
 

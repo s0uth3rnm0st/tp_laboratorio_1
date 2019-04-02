@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "biblioteca.h"
 
 
@@ -51,7 +53,6 @@ int dividir(int datoA, int datoB, float *resultado)
 int pedirDato(int *dato)
 {
     int aux;
-    int sePudo;
     int retorno=0;
 
     printf("ingrese dato ");
@@ -83,7 +84,6 @@ int dividir(int datoA, int datoB, float *resultado)
 int suma(int datoA, int datoB, float *resultado)
 {
     float aux;
-    int retorno;
 
     aux=(float)datoA+datoB;
     *resultado=aux;
@@ -92,7 +92,6 @@ int suma(int datoA, int datoB, float *resultado)
 int resta(int datoA, int datoB, float *resultado)
 {
     float aux;
-    int retorno;
 
     aux=(float)datoA-datoB;
     *resultado=aux;
@@ -101,13 +100,19 @@ int resta(int datoA, int datoB, float *resultado)
 int multiplicacion(int datoA, int datoB, float *resultado)
 {
     float aux;
-    int retorno;
 
     aux=(float)datoA*datoB;
     *resultado=aux;
 }
 
-int factorial(int datoA, int datoB, float *resultado)
+int sacarFactorialDatoA (int datoA)
 {
-
+    int respuesta;
+    if(datoA==1)
+    {
+        return 1;
+    }
+    respuesta=datoA*factorial(datoA-1);
+    return respuesta;
 }
+

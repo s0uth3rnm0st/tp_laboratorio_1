@@ -9,13 +9,15 @@
 
 1553872759 d:\11111trabajopractico\biblioteca.h
 
-1554216368 source:c:\programacion\tp_laboratorio_1\trabajo-practico\biblioteca.c
+1554218958 source:c:\programacion\tp_laboratorio_1\trabajo-practico\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
 	"biblioteca.h"
 
-1554216684 c:\programacion\tp_laboratorio_1\trabajo-practico\biblioteca.h
+1554218875 c:\programacion\tp_laboratorio_1\trabajo-practico\biblioteca.h
 	<stdio.h>
 
-1554216684 source:c:\programacion\tp_laboratorio_1\trabajo-practico\main.c
+1554218328 source:c:\programacion\tp_laboratorio_1\trabajo-practico\main.c
 	<stdlib.h>
 	"biblioteca.h"
 
