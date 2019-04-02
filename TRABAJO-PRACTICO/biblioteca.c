@@ -65,7 +65,7 @@ return retorno;
 
 }
 
-int dividir(int datoA, int datoB, float *resultado) //puntero al resultado
+int dividir(int datoA, int datoB, float *resultado)
 {
     float aux;
     int retorno;
@@ -77,7 +77,6 @@ int dividir(int datoA, int datoB, float *resultado) //puntero al resultado
         retorno= 1;
     }
     return retorno;
-
 }
 
 
@@ -88,9 +87,6 @@ int suma(int datoA, int datoB, float *resultado)
 
     aux=(float)datoA+datoB;
     *resultado=aux;
-    retorno= 1;
-
-    return retorno;
 }
 
 int resta(int datoA, int datoB, float *resultado)
@@ -100,8 +96,18 @@ int resta(int datoA, int datoB, float *resultado)
 
     aux=(float)datoA-datoB;
     *resultado=aux;
-    retorno= 1;
-
-    return retorno;
 }
 
+int multiplicacion(int datoA, int datoB, float *resultado)
+{
+    float aux;
+    int retorno;
+
+    aux=(float)datoA*datoB;
+    *resultado=aux;
+}
+
+int factorial(int datoA, int datoB, float *resultado)
+{
+
+}

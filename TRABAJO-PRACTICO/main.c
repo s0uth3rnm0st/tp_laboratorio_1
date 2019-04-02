@@ -7,9 +7,12 @@ int main()
     int sePudoDividir;
     int sumar;
     int restar;
+    int multiplicar;
+    int sacarFactorial;
     float respuestaDivision;
     float respuestaSuma;
     float respuestaResta;
+    float respuestaMultiplicacion;
     int datoA;
     int datoB;
     int opcion;
@@ -33,7 +36,7 @@ int main()
                 sePudoDividir=dividir(datoA,datoB,&respuestaDivision);
                 sumar=suma(datoA,datoB,&respuestaSuma);
                 restar=resta(datoA,datoB,&respuestaResta);
-
+                multiplicar=multiplicacion(datoA,datoB,&respuestaMultiplicacion);
                 break;
 
             case 4:
@@ -50,6 +53,9 @@ int main()
                 {
                     printf("ERROR, no se puede hacer . . .\n");
                 }
+
+                printf("la respuesta de la multiplicacion es %f\n",respuestaMultiplicacion);
+
                 break;
 
             case 5:
