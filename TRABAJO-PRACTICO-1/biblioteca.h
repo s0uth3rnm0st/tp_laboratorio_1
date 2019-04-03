@@ -22,10 +22,12 @@ int resta(int datoA, int datoB, float *resultado);
 
 int multiplicacion(int datoA, int datoB, float *resultado);
 
-int sacarFactorialDatoA (int datoA);
+int factorial (int datoA);
 
 
 //error con los numeros con coma, no los lee y traba el programa, arreglar...
+//doxyblocks
+//error al ingressar 0
 
 
 #endif // BIBLIOTECA_H_INCLUDED

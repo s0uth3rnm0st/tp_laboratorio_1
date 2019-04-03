@@ -105,14 +105,14 @@ int multiplicacion(int datoA, int datoB, float *resultado)
     *resultado=aux;
 }
 
-int sacarFactorialDatoA (int datoA)
+int factorial (int dato)
 {
     int respuesta;
-    if(datoA==1)
+    if(dato==1)
     {
         return 1;
     }
-    respuesta=datoA*factorial(datoA-1);
+    respuesta=dato*factorial(dato-1);
     return respuesta;
 }
 
