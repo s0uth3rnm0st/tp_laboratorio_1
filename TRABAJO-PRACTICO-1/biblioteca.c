@@ -112,7 +112,18 @@ int factorial (int dato)
     {
         return 1;
     }
-    respuesta=dato*factorial(dato-1);
-    return respuesta;
+   else
+    {
+        if(dato==0)
+        {
+            return 0;
+        }
+    }
+
+    if(dato>0)
+    {
+        respuesta=dato*factorial(dato-1);
+        return respuesta;
+    }
 }
 

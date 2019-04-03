@@ -61,9 +61,23 @@ int main()
 
                 printf("La respuesta de la multiplicacion es %f\n",respuestaMultiplicacion);
 
-                printf("El factorial del primer numero es: %d\n",sacarFactorialDatoA);
+                if(sacarFactorialDatoA!=0)
+                {
+                    printf("El factorial del primer numero es: %d\n",sacarFactorialDatoA);
+                }
+                else
+                {
+                    printf("el factorial del primer numero (0) es 1\n");
+                }
 
-                printf("El factorial del segundo numero es: %d\n",sacarFactorialDatoB);
+                if(sacarFactorialDatoB!=0)
+                {
+                    printf("El factorial del primer numero es: %d\n",sacarFactorialDatoB);
+                }
+                else
+                {
+                    printf("el factorial del segundo numero (0) es 1\n");
+                }
 
                 break;
 
@@ -76,6 +90,7 @@ int main()
                 break;
         }
         system("pause");
+        fflush(stdin);
         system("cls");
     }while(seguir=='s');
 
