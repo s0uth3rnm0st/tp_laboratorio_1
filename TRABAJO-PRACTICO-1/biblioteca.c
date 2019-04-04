@@ -15,44 +15,9 @@ int pedirOpcionMenu(char texto[])
         return opcion;
     }
 
-/*
-int pedirOperando(int *dato)
-{
-    int aux;
-    int sePudo;
-    int retorno=0;
-
-    printf("ingrese dato ");
-    if(scanf("%d",&aux)==1)
-    {
-            *dato=aux;
-            retorno= 1;
-    }
-
-return retorno;
-
-}
-
-int dividir(int datoA, int datoB, float *resultado)
+float pedirDato(float *dato)
 {
     float aux;
-    int retorno;
-
-    if(datoB!=0)
-    {
-        aux=(float)datoA/datoB;
-        *resultado=aux;
-        retorno= 1;
-    }
-    return retorno;
-
-}
-
-*/
-
-int pedirDato(int *dato)
-{
-    int aux;
     int retorno=0;
 
     printf("ingrese dato ");

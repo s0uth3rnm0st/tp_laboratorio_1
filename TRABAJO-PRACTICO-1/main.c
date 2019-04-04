@@ -46,20 +46,20 @@ int main()
 
             case 4:
 
-                printf("la respuesta de la suma es %f\n ",respuestaSuma);
+                printf("la respuesta de la suma es %.3f \n ",respuestaSuma);
 
-                printf("la respuesta de la resta es %f\n",respuestaResta);
+                printf("la respuesta de la resta es %.3f\n",respuestaResta);
 
                 if(sePudoDividir==1)
                 {
-                    printf("la respuesta de la division es %f\n",respuestaDivision);
+                    printf("la respuesta de la division es %.3f\n",respuestaDivision);
                 }
                 else
                 {
                     printf("ERROR, no se puede hacer la division. . .\n");
                 }
 
-                printf("La respuesta de la multiplicacion es %f\n",respuestaMultiplicacion);
+                printf("La respuesta de la multiplicacion es %.3f\n",respuestaMultiplicacion);
 
                 if(sacarFactorialDatoA!=0)
                 {
