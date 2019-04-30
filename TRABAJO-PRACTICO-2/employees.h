@@ -17,6 +17,8 @@ typedef struct
 
 #endif // EMPLOYEES_H_INCLUDED
 
+int getMenuOption(char text[]);
+
 void buildEmployeeArray(Employee listing[], int len);
 
 int initEmployees(Employee listing[], int len);

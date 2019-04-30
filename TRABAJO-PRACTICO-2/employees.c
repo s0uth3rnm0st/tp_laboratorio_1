@@ -3,6 +3,16 @@
 #include <string.h>
 #include "employees.h"
 
+int getMenuOption(char text[])
+{
+    int option;
+
+    printf("%s",text);
+    scanf("%d",&option);
+
+    return option;
+}
+
 void buildEmployeeArray(Employee listing[], int len)
 {
     int i;
