@@ -1,12 +1,16 @@
 # depslib dependency file v1.0
-1556640637 source:c:\programacion\tp_laboratorio_1\trabajo-practico-2\main.c
+1556662835 source:c:\programacion\tp_laboratorio_1\trabajo-practico-2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	"biblioteca.h"
+	"employees.h"
 
-1556640731 c:\programacion\tp_laboratorio_1\trabajo-practico-2\biblioteca.h
+1556662561 c:\programacion\tp_laboratorio_1\trabajo-practico-2\employees.h
+	<string.h>
+
+1556662630 source:c:\programacion\tp_laboratorio_1\trabajo-practico-2\employees.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	"employees.h"
 
