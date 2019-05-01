@@ -27,5 +27,5 @@ void printEmployees(Employee theEmployee);
 
 int printEmployeesArray(Employee listing[], int length);
 
-int addEmployee(Employee listing[], int id, char name[],char lastName[], float salary,int sector, int len);
+int addEmployee(Employee listing[], int len);
 

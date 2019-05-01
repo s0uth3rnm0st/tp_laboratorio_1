@@ -67,7 +67,55 @@ int printEmployeesArray(Employee listing[], int len)
     }
 }
 
-int addEmployee(Employee listing[], int id, char name[],char lastName[], float salary,int sector, int len)
+Employee getEmployee()
 {
+    Employee employeeToReturn;
 
+    printf("Ingrese el ID: ");
+    scanf("%d", &employeeToReturn.id);
+
+    printf("Ingrese nombre: ");
+    fflush(stdin);
+    gets(employeeToReturn.name);
+
+    printf("Ingrese apellido: ");
+    fflush(stdin);
+    gets(employeeToReturn.lastName);
+
+    printf("Ingrese el salario: ");
+    scanf("%f", &employeeToReturn.salary);
+
+    printf("Ingrese el sector: ");
+    scanf("%d", &employeeToReturn.sector);
+
+    employeeToReturn.isEmpty = OCCUPIED;
+
+    return employeeToReturn;
+}
+
+int getFreeSpace(Employee listing[], int len)
+{
+    int i;
+    int index = -1;
+
+    for(i=0; i<len; i++)
+    {
+        if(listing[i].isEmpty==FREE)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int addEmployee(Employee listing[], int len)
+{
+    int index;
+    index= getFreeSpace(listing, len);
+    if(index != -1)
+    {
+        listing[index]= getEmployee();
+    }
+    return index;
 }

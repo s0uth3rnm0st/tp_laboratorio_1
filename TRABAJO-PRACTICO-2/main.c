@@ -2,36 +2,42 @@
 #include <stdlib.h>
 #include <string.h>
 #include "employees.h"
+#define T 4
 
 int main()
 {
-    Employee listing[3];
-    buildEmployeeArray(listing, 3);
-    initEmployees(listing, 3);
-    printEmployeesArray(listing, 3);
+    Employee listing[T];
+    buildEmployeeArray(listing, T);
+    initEmployees(listing, T);
+    printEmployeesArray(listing, T);
 
     int option;
 
     option=getMenuOption("******************\nINGRESE UNA OPCION\n******************\n(1)ALTA\n(2)MODIFICACION\n(3)BAJA\n(4)INFORMAR\n\n");
-    switch(option)
+    scanf("Ingrese opcion: %d",option);
+
+    do
     {
-        case 1:
+        switch(option)
+        {
+            case 1:
+                addEmployee(listing,T);
+                break;
 
-            break;
+            case 2:
 
-        case 2;
+                break;
 
-            break;
+            case 3:
 
-        case 3;
+                break;
 
-            break;
+            case 4:
 
-        case 4;
+                break;
 
-            break;
-
-    }
+        }
+    }while(option!=10);
 
     return 0;
 }
