@@ -1,4 +1,4 @@
-#ifndef EMPLOYEES_H_INCLUDED
+
 #define EMPLOYEES_H_INCLUDED
 #include <string.h>
 #define FREE 0
@@ -15,7 +15,7 @@ typedef struct
  int isEmpty;
 }Employee;
 
-#endif // EMPLOYEES_H_INCLUDED
+
 
 int getMenuOption(char text[]);
 

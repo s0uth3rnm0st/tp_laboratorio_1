@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1556908110 source:c:\programacion\tp_laboratorio_1\2\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"employee.h"
+
+1556907761 c:\programacion\tp_laboratorio_1\2\employee.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1556907346 source:c:\programacion\tp_laboratorio_1\2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"employee.h"
+
