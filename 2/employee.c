@@ -33,10 +33,38 @@ Employee getEmployee()
     return employeeReturn;
 }
 
+void sortEmployees(Employee listing, int len)
+{
+    Employee emp[len],aux;
+    //int auxEntero;
+    int i,j;
+    for(i=0; i<len-1; i++)
+    {
+        for(j=i+1; j<len; j++)
+        {
+            if((strcmp(emp[i].lastName,emp[j].lastName))<0)
+            {
+                aux=emp[i];
+                emp[i]=emp[j];
+                emp[j]=aux;
+
+                /*
+                auxEntero = edad[i];
+                edad[i] = edad[j];
+                edad[j] = auxEntero;
+
+                auxEntero = notas[i];
+                notas[i] = notas[j];
+                notas[j] = auxEntero;
+                */
+            }
+        }
+    }
+}
 
 void printEmployee(Employee theEmployee)
 {
-    printf("%15s %15s %10s %10s %10f %5d\n", theEmployee.name, theEmployee.lastName, theEmployee.id, theEmployee.sector, theEmployee.salary, theEmployee.isEmpty);
+    printf("%15s %15s %10s %10s %10f %5d\n",theEmployee.lastName, theEmployee.name, theEmployee.id, theEmployee.sector, theEmployee.salary, theEmployee.isEmpty);
 }
 
 
@@ -151,7 +179,7 @@ void initEmployee(Employee listaProductos[],int tam)
 
     float salary[3]={50000,42300.95,19100.52};
     char name[3][50]={"Alejandro","Franco","Julian"};
-    char lastName[3][50]={"Rodriguez","Bagley","Arcor"};
+    char lastName[3][50]={"Terrabusi","Arcor","Bagley"};
 
     char id[3][13]={"123","456","789"};
 

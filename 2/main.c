@@ -26,17 +26,19 @@ int main()
         switch(opcion)
         {
             case 1:
-               addEmployee(employeeListing, T);
-            break;
+                addEmployee(employeeListing, T);
+                break;
+
             case 2:
-                deleteEmployee(employeeListing,T);
+                deleteEmployee(employeeListing, T);
                 break;
             case 3:
                 editEmployee(employeeListing, T);
                 break;
 
             case 4:
-                mostrarArray(employeeListing,T);
+                sortEmployees(theEmployee, T);
+                mostrarArray(employeeListing, T);
                 break;
         }
     }while(opcion!=10);

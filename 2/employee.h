@@ -19,7 +19,9 @@ typedef struct
 
 Employee getEmployee();
 
-void initEmployee(Employee[],int);//OK
+void initEmployee(Employee[],int);
+
+void sortEmployees(Employee listing, int len);
 
 void printEmployee(Employee);
 
