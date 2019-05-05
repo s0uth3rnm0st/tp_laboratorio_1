@@ -16,6 +16,9 @@ typedef struct
     char sector[50];
 }Employee;
 
+int getString(char mensaje[],char input[]);
+
+void getFloat(char mensaje[],float *numero,float tamMin,float tamMax);
 
 Employee getEmployee();
 

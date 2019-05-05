@@ -37,7 +37,6 @@ int main()
                 break;
 
             case 4:
-                sortEmployees(theEmployee, T);
                 mostrarArray(employeeListing, T);
                 break;
         }
