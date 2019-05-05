@@ -28,6 +28,36 @@ int getString(char mensaje[],char input[])
     return retorno;
 }
 
+int getInt(char mensaje[], int *input)
+{
+    char ingreso[50];
+    int retorno=0;
+    int flag=1;
+    int auxiliar=0;
+    int i;
+    printf(mensaje);
+    scanf("%s",&ingreso);
+
+    for(i=0;i<=strlen(ingreso);i++)
+    {
+        if(ingreso[i]=='.')
+        {
+            flag=0;
+            break;
+        }
+    }
+
+    auxiliar=atoi(ingreso);
+
+    if(auxiliar>0 && flag==1)
+    {
+        *input=auxiliar;
+        retorno=1;
+    }
+
+    return retorno;
+}
+
 void getFloat(char mensaje[],float *numero,float tamMin,float tamMax)
 {
     char ingreso[50];
@@ -35,8 +65,6 @@ void getFloat(char mensaje[],float *numero,float tamMin,float tamMax)
     int flag=0;
     float auxiliar;
     int i;
-
-
 
     do
     {
@@ -70,7 +98,6 @@ void getFloat(char mensaje[],float *numero,float tamMin,float tamMax)
             printf("error\n");
         }
 
-
     }while(retorno==0);
 
 }
@@ -93,7 +120,7 @@ Employee getEmployee()
     fflush(stdin);
     gets(employeeReturn.id);
 
-    while(getString("ingrese el sector: ",employeeReturn.sector)==0)                              /**debe ser un numero y lo toma como string**/
+    while(getInt("ingrese el sector: ",&employeeReturn.sector)==0)
     {
         printf("ERROR, ingrese un dato valido\n");
     }
@@ -137,7 +164,7 @@ void sortEmployees(Employee listing, int len)
 void printEmployee(Employee theEmployee)
 {
     sortEmployees(theEmployee, 10);
-    printf("%15s %15s %10s %10s %10f %5d\n",theEmployee.lastName, theEmployee.name, theEmployee.id, theEmployee.sector, theEmployee.salary, theEmployee.isEmpty);
+    printf("%15s %15s %10s %10d %10f %5d\n",theEmployee.lastName, theEmployee.name, theEmployee.id, theEmployee.sector, theEmployee.salary, theEmployee.isEmpty);
 }
 
 
@@ -174,7 +201,7 @@ void construirArray(Employee listado[], int cant)
         strcpy(listado[i].name, "");
         strcpy(listado[i].lastName, "");
         strcpy(listado[i].id, "");
-        strcpy(listado[i].sector, "");
+        listado[i].sector= 0;
     }
 }
 
@@ -254,7 +281,7 @@ void initEmployee(Employee listaProductos[],int tam)
 
     char id[3][13]={"123","456","789"};
 
-    char sector[3][50]={"1","2","3"};
+    int sector[3]={1,2,3};
 
     int i;
 
@@ -263,7 +290,7 @@ void initEmployee(Employee listaProductos[],int tam)
         strcpy(listaProductos[i].id,id[i]);
         strcpy(listaProductos[i].name,name[i]);
         strcpy(listaProductos[i].lastName, lastName[i]);
-        strcpy(listaProductos[i].sector, sector[i]);
+        listaProductos[i].sector= sector[i];
         listaProductos[i].salary=salary[i];
         listaProductos[i].isEmpty = OCUPADO;
     }
@@ -283,22 +310,26 @@ int editEmployee(Employee lista[], int tam)
    {
        if(strcmp(lista[i].id, id)==0)
        {
-            printf("Ingrese el nuevo NOMBRE: ");
+            while(getString("ingrese el nombre: ",lista[i].name)==0)
+            {
+                printf("ERROR, ingrese un dato valido\n");
+            }
+
+            while(getString("ingrese el apellido: ",lista[i].lastName)==0)
+            {
+                printf("ERROR, ingrese un dato valido\n");
+            }
+
+            printf("Ingrese el ID: ");
             fflush(stdin);
-            gets(lista[i].name);
+            gets(lista[i].id);
 
-            printf("Ingrese el nuevo APELLIDO: ");
-            fflush(stdin);
-            gets(lista[i].lastName);
+            while(getInt("ingrese el sector: ",lista[i].sector)==0)
+            {
+                printf("ERROR, ingrese un dato valido\n");
+            }
 
-            printf("Ingrese el nuevo SALARIO: ");
-            scanf("%f", &lista[i].salary);
-            loEncontro = 1;
-
-            printf("Ingrese el nuevo SECTOR: ");
-            fflush(stdin);
-            gets(lista[i].sector);
-
+            getFloat("ingrese el salario: ", &lista[i].salary, MIN, MAX);
 
 
             break;
@@ -308,8 +339,13 @@ int editEmployee(Employee lista[], int tam)
 
    if(loEncontro==0)
    {
-      printf("Codigo inexistente!!");
+      printf("ID inexistente!!\n");
    }
 
    return 0;
+}
+
+void salaryTotal (Employee listing[], int len)
+{
+
 }
