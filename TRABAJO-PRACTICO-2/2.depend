@@ -1,0 +1,68 @@
+# depslib dependency file v1.0
+1557187800 source:c:\programacion\tp_laboratorio_1\2\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"employee.h"
+
+1557186937 c:\programacion\tp_laboratorio_1\2\employee.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557342143 source:c:\programacion\tp_laboratorio_1\2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"biblioteca.h"
+
+1557343964 source:c:\programacion\tp_laboratorio_1\2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"biblioteca.h"
+
+1557339595 c:\programacion\tp_laboratorio_1\2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557339595 c:\programacion\tp_laboratorio_1\2\biblioteca.h
+
+1557339600 source:c:\programacion\tp_laboratorio_1\2\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"biblioteca.h"
+
+1557344781 source:c:\programacion\tp_laboratorio_1\trabajo-practico-2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"biblioteca.h"
+
+1557339595 c:\programacion\tp_laboratorio_1\trabajo-practico-2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557339595 c:\programacion\tp_laboratorio_1\trabajo-practico-2\biblioteca.h
+
+1557339600 source:c:\programacion\tp_laboratorio_1\trabajo-practico-2\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"biblioteca.h"
+
+1557342143 source:c:\programacion\tp_laboratorio_1\trabajo-practico-2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"biblioteca.h"
+

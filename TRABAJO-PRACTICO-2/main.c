@@ -1,43 +1,76 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "employees.h"
 #define T 4
+#include "ArrayEmployees.h"
+#include "biblioteca.h"
+
+/**falta: punto 4, seccion 2*/
 
 int main()
 {
-    Employee listing[T];
-    buildEmployeeArray(listing, T);
-    initEmployees(listing, T);
-    printEmployeesArray(listing, T);
+    int opcion;
+    char opcionChar[50];
+    int exit=1;
 
-    int option;
+    //Employee theEmployee;
+    Employee employeeListing[T];
+    construirArray(employeeListing,T);
+    initEmployee(employeeListing,T);
+    //mostrarArray(employeeListing,T);
 
-    option=getMenuOption("******************\nINGRESE UNA OPCION\n******************\n(1)ALTA\n(2)MODIFICACION\n(3)BAJA\n(4)INFORMAR\n\n");
-    scanf("Ingrese opcion: %d",option);
 
-    do
+
+    while(exit==1)
     {
-        switch(option)
+        printf("1.ALTA\n2.BAJA\n3.MODIFICAR\n4.Mostrar\n5.SALIR\n\n");
+        while(!getStringNumero("Ingrese el numero de la opcion: ",opcionChar))
+        {
+            printf("OPCION INCORRECTA!! debe ser un numero.\n");
+            printf("1.ALTA\n2.BAJA\n3.MODIFICAR\n4.Mostrar\n5.SALIR\n\n");
+
+        }
+
+
+
+        opcion=atoi(opcionChar);
+
+        switch(opcion)
         {
             case 1:
-                addEmployee(listing,T);
+                addEmployee(employeeListing, T);
                 break;
 
             case 2:
-
+                deleteEmployee(employeeListing, T);
                 break;
 
             case 3:
-
+                editEmployee(employeeListing, T);
                 break;
 
             case 4:
-
+                sortEmployees(employeeListing, T);
+                mostrarArray(employeeListing, T);
+                salaryTotal(employeeListing, T);
                 break;
 
+            case 5:
+                exit = 0;
+                break;
+
+            default:
+                printf("Opcion incorrecta, reingrese...\n");
         }
-    }while(option!=10);
+        system("pause");
+        system("cls");
+    }
+
+
+
+
+
+
 
     return 0;
 }
