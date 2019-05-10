@@ -4,6 +4,21 @@
 #include "ArrayEmployees.h"
 #include "biblioteca.h"
 
+int pedirOpcionMenu(char texto[],char opcion[])
+    {
+     int retorno=1;
+
+        printf("%s",texto);
+        if(!getStringNumero("",opcion))
+        {
+            retorno=0;
+        }
+
+
+        return retorno;
+    }
+
+
 int getString(char mensaje[],char input[])
 {
     int i;
@@ -28,25 +43,27 @@ int getString(char mensaje[],char input[])
 int soloNumeros(char str[])
 {
     int i = 0;
+    int retorno=1;
     while(str[i] != '\0')
     {
         if(str[i] < '0' || str[i] > '9' )
-            return 0;
+            retorno= 0;
         i++;
     }
-    return 1;
+    return retorno;
 }
 
 int getStringNumero(char mensaje[],char input[])
 {
     char aux[256];
+    int retorno=0;
     getString(mensaje,aux);
     if(soloNumeros(aux))
     {
         strcpy(input,aux);
-        return 1;
+        retorno= 1;
     }
-    return 0;
+    return retorno;
 }
 
 int getInt(char mensaje[], int *input)
@@ -123,10 +140,10 @@ void getFloat(char mensaje[],float *numero,float tamMin,float tamMax)
 
 }
 
-void cargarArray(Employee listado[], int cant)
+void cargarArray(Employee listado[], int len)
 {
     int i;
-    for(i=0; i<cant; i++)
+    for(i=0; i<len; i++)
     {
         listado[i]= getEmployee();
     }
@@ -164,10 +181,10 @@ int mostrarArray(Employee listing[], int len)
 }
 
 
-void construirArray(Employee listado[], int cant)
+void construirArray(Employee listado[], int len)
 {
     int i;
-    for(i=0; i<cant; i++)
+    for(i=0; i<len; i++)
     {
         listado[i].isEmpty= LIBRE;
         listado[i].salary= 0;

@@ -86,10 +86,12 @@ int addEmployee(Employee listing[], int len)
 
         for(indice = 0 ; indice < len ; indice++)
         {
+            //listing[indice].id =  indice;
             listing[indice].id =  indice + 1;
         }
         printf("Empleado registrado exitosamente.\n");
     }
+
     else
     {
         fullArray(listing,len);
@@ -110,6 +112,7 @@ int fullArray(Employee listing[],int len)
             break;
         }
     }
+    return 0;
 }
 
 int existEmployee(Employee listing[],int len)
@@ -130,7 +133,6 @@ int existEmployee(Employee listing[],int len)
 
 int deleteEmployee(Employee listing[], int len)
 {
-
     int i;
     int id;
     int loEncontro = 0;
@@ -204,8 +206,6 @@ int editEmployee(Employee listing[], int len)
         {
             if(listing[i].id==id && listing[i].isEmpty==OCUPADO)
             {
-
-
                 while(getString("ingrese el nombre: ",listing[i].name)==0)
                 {
                     printf("ERROR, ingrese un dato valido\n");
@@ -215,7 +215,6 @@ int editEmployee(Employee listing[], int len)
                 {
                     printf("ERROR, ingrese un dato valido\n");
                 }
-
 
                 while(getInt("ingrese el sector: ",&listing[i].sector)==0)
                 {
@@ -247,7 +246,7 @@ int editEmployee(Employee listing[], int len)
    return 0;
 }
 
-void salaryTotal (Employee listing[], int len)
+void arrayInformation(Employee listing[], int len)
 {
     int i;
     float suma=0;
@@ -255,27 +254,42 @@ void salaryTotal (Employee listing[], int len)
     float promedio=0;
     int superaPromedio=0;
 
-    for(i=0;i<len;i++)
+    if(existEmployee(listing,len))
     {
-        if(listing[i].isEmpty==OCUPADO)
+        for(i=0;i<len;i++)
         {
-            suma=listing[i].salary+suma;
-            employeeCantidad++;
+            if(listing[i].isEmpty==OCUPADO)
+            {
+                suma=listing[i].salary+suma;
+                employeeCantidad++;
+            }
         }
-    }
-    promedio=(float)suma/employeeCantidad;
+        promedio=(float)suma/employeeCantidad;
 
 
-    for(i=0;i<len;i++)
-    {
-        if(listing[i].salary>promedio)
         {
-            superaPromedio++;
+            for(i=0;i<len;i++)
+            {
+                if(listing[i].isEmpty==OCUPADO)
+                {
+                    if(listing[i].salary>promedio)
+                    {
+                        superaPromedio++;
+                    }
+                }
+            }
         }
-    }
-    printf("\nEl TOTAL de los salarios es: \t\t%f\nEl PROMEDIO de los salarios es: \t%f\nLos empleados que SUPERAN EL PROMEDIO son: \t\t%d\n",suma,promedio,superaPromedio);
 
-    printf("#********#\n");
-    printf("# TOTAL\t #\n#  DE\t #\n#SALARIOS#\n");
-    printf("#********#\n\n");
+        printf("\n#********#\n");
+        printf("# TOTAL\t #\n#  DE\t # ---> %f\n#SALARIOS#\n",suma);
+        printf("#********#\n\n");
+
+        printf("#********#\n");
+        printf("#PROMEDIO#\n#  DE\t # ---> %f\n#SALARIOS#\n",promedio);
+        printf("#********#\n\n");
+
+        printf("#**********#\n");
+        printf("#EMPLEADOS #\n#ARRIBA DEL# ---> %d\n#PROMEDIO  #\n",superaPromedio);
+        printf("#**********#\n\n");
+    }
 }

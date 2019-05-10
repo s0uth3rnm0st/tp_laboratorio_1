@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define T 4
+#define T 10
 #include "ArrayEmployees.h"
 #include "biblioteca.h"
 
-/**falta: punto 4, seccion 2*/
 
 int main()
 {
@@ -13,25 +12,19 @@ int main()
     char opcionChar[50];
     int exit=1;
 
-    //Employee theEmployee;
     Employee employeeListing[T];
     construirArray(employeeListing,T);
     initEmployee(employeeListing,T);
     //mostrarArray(employeeListing,T);
 
-
-
     while(exit==1)
     {
         printf("1.ALTA\n2.BAJA\n3.MODIFICAR\n4.Mostrar\n5.SALIR\n\n");
-        while(!getStringNumero("Ingrese el numero de la opcion: ",opcionChar))
+        while(!pedirOpcionMenu("Ingrese el numero de la opcion: ",opcionChar))
         {
             printf("OPCION INCORRECTA!! debe ser un numero.\n");
             printf("1.ALTA\n2.BAJA\n3.MODIFICAR\n4.Mostrar\n5.SALIR\n\n");
-
         }
-
-
 
         opcion=atoi(opcionChar);
 
@@ -52,7 +45,7 @@ int main()
             case 4:
                 sortEmployees(employeeListing, T);
                 mostrarArray(employeeListing, T);
-                salaryTotal(employeeListing, T);
+                arrayInformation(employeeListing, T);
                 break;
 
             case 5:
@@ -65,12 +58,6 @@ int main()
         system("pause");
         system("cls");
     }
-
-
-
-
-
-
 
     return 0;
 }
