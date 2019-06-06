@@ -6,7 +6,7 @@
 Employee* employee_new()
 {
     Employee* empleadoRetorno;
-    empleadoRetorno = (Employee*) malloc(sizeof(Employee));//malloc
+    empleadoRetorno = (Employee*) calloc(sizeof(Employee),1);//malloc
     return empleadoRetorno;
 }
 
