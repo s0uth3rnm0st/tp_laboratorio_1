@@ -7,6 +7,7 @@ Employee* employee_new()
 {
     Employee* empleadoRetorno;
     empleadoRetorno = (Employee*) calloc(sizeof(Employee),1);//malloc
+    //empleadoRetorno = (Employee*) malloc(sizeof(Employee));
     return empleadoRetorno;
 }
 
@@ -66,3 +67,15 @@ void mostrarEmpleado(Employee* unEmpleado)
         isNull=0;
     }
 }
+
+void employee_mostrarEmpleado(Employee* unEmpleado)
+{
+    int isNull;
+    if(unEmpleado!=NULL)
+    {
+        printf("%d--%s--%d\n",unEmpleado->id,unEmpleado->nombre,unEmpleado->horasTrabajadas);
+        isNull=0;
+    }
+}
+
+//void employee_mostrarArrayEmpleado(Employee* unEmpleado)

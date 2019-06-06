@@ -15,7 +15,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
     char id[500],nombre[500],horasTrabajadas[500],sueldo[500];
     int contador=0;
-    Employee* theEmployee;
+    Employee* theEmployee=employee_new();
     Employee list[51];
 
 
@@ -24,6 +24,10 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         printf("no se pudo leer");
         exit(1);
     }
+    {
+        printf("Archivo abierto exitosamente!!\n\n");
+    }
+
 
     fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo); //es para la primer fila que suele tener todos char
 
@@ -34,7 +38,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     {
         fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
 
-        printf("%d \t-- %s \t  -- %t \t-- %f",id,nombre,horasTrabajadas,sueldo);
+        printf("%s \t-- %s \t  -- %s \t-- %s",id,nombre,horasTrabajadas,sueldo);
         printf("\n");
 
         strcpy(theEmployee->nombre,nombre);
@@ -43,17 +47,17 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         theEmployee->sueldo=atof(sueldo);
         list[contador]=*theEmployee;
 
-        contador++;
+        contador++; // se rompe en el 66
     }
 
-    int i;
     fclose(pFile);
 
+    int i;
     printf("\nESTRUCTURA: \n");
     for(i=0; i<20; i++)
     {
         printf("%s - %d - %d\n", list[i].nombre, list[i].horasTrabajadas, list[i].id);
-       // break;
+        // break;
     }
     return 1;
 }
