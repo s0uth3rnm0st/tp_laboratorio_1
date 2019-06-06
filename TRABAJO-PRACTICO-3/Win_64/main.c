@@ -37,8 +37,17 @@ int main()
 
     parser_EmployeeFromText(pFile,listaEmpleados);
 
-    Employee* unEmpleado=employee_newParametros("101","Juan","2340");
+    Employee* unEmpleado=employee_newParametros("101","Juan","140","25000"); //agregar en la linked list y ver si anda
     mostrarEmpleado(unEmpleado);
+/*********************************************///Juan entrando a la linked list
+    ll_add(listaEmpleados , unEmpleado);
+    int lltam=ll_len(listaEmpleados);
+    printf("%d",lltam);
+
+    int Juan=(int)ll_get(listaEmpleados,lltam);
+    printf("\n%d",Juan);
+/*********************************************/
+
 
     return 0;
 }

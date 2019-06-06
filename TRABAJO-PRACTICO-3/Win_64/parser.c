@@ -18,7 +18,6 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     Employee* theEmployee=employee_new();
     Employee list[51]; //no se que hace
 
-
     if((pFile=fopen(ARCHIVO,"r"))==NULL)
     {
         printf("no se pudo leer");
@@ -27,36 +26,36 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     else
     {
         printf("Archivo abierto exitosamente!!\n\n");
-    }
+        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo); //es para la primer fila que suele tener todos char
 
-
-    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo); //es para la primer fila que suele tener todos char
-
-
-    printf("%s  -- %s -- %s -- %s",id,nombre,horasTrabajadas,sueldo);
-    printf("\n");
-    while(!feof(pFile))
-    {
-        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
-
-        printf("%s \t-- %s \t  -- %s \t-- %s",id,nombre,horasTrabajadas,sueldo);
+        printf("%s  -- %s -- %s -- %s",id,nombre,horasTrabajadas,sueldo);
         printf("\n");
+        while(!feof(pFile))
+        {
+            fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
 
-        strcpy(theEmployee->nombre,nombre);
-        theEmployee->id=atoi(id);
-        theEmployee->horasTrabajadas=atoi(horasTrabajadas);
-        theEmployee->sueldo=atof(sueldo);
-        list[contador]=*theEmployee;
+            printf("%s \t-- %s \t  -- %s \t-- %s",id,nombre,horasTrabajadas,sueldo);
+            printf("\n");
 
-        contador++; // se rompe en el 66
+            strcpy(theEmployee->nombre,nombre);
+            theEmployee->id=atoi(id);
+            theEmployee->horasTrabajadas=atoi(horasTrabajadas);
+            theEmployee->sueldo=atoi(sueldo);
+            //list[contador]=*theEmployee; // se rompe en el 66
+            ll_add(pArrayListEmployee,contador);
+            contador++; // se rompe en el 66
+        }
+
+        fclose(pFile);
+
+        int i;
+
+        printf("\nESTRUCTURA: \n");
+        printf(" ID  NOMBRE\t\tHORAS   SUELDO\n");
+        fprintf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
+        //employee_mostrarArrayEmpleado(list,i,1);//va en el controller
+        return 1;
     }
-
-    fclose(pFile);
-
-    int i;
-    printf("\nESTRUCTURA: \n");
-    employee_mostrarArrayEmpleado(list,i,20);
-    return 1;
 }
 
 /** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo binario).
