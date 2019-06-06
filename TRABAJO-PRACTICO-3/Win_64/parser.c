@@ -16,7 +16,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     char id[500],nombre[500],horasTrabajadas[500],sueldo[500];
     int contador=0;
     Employee* theEmployee=employee_new();
-    Employee list[51];
+    Employee list[51]; //no se que hace
 
 
     if((pFile=fopen(ARCHIVO,"r"))==NULL)
@@ -24,6 +24,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         printf("no se pudo leer");
         exit(1);
     }
+    else
     {
         printf("Archivo abierto exitosamente!!\n\n");
     }
@@ -54,11 +55,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 
     int i;
     printf("\nESTRUCTURA: \n");
-    for(i=0; i<20; i++)
-    {
-        printf("%s - %d - %d\n", list[i].nombre, list[i].horasTrabajadas, list[i].id);
-        // break;
-    }
+    employee_mostrarArrayEmpleado(list,i,20);
     return 1;
 }
 

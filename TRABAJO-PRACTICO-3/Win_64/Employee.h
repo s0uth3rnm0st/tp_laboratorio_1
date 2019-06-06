@@ -12,7 +12,7 @@ Employee* employee_new();
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr);
 void employee_delete();
 void employee_mostrarEmpleado(Employee* unEmpleado);
-void employee_mostrarArrayEmpleado(Employee* unEmpleado);
+void employee_mostrarArrayEmpleado(Employee* unEmpleado, int index, int len);
 
 int employee_setId(Employee* this,int id);
 int employee_getId(Employee* this,int* id);

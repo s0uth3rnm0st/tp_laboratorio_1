@@ -78,4 +78,11 @@ void employee_mostrarEmpleado(Employee* unEmpleado)
     }
 }
 
-//void employee_mostrarArrayEmpleado(Employee* unEmpleado)
+void employee_mostrarArrayEmpleado(Employee* listing, int index, int len)
+{
+    for(index=0; index<len; index++)
+    {
+        printf("%s - %d - %d\n", listing[index].nombre, listing[index].horasTrabajadas, listing[index].id);
+        // break;
+    }
+}
