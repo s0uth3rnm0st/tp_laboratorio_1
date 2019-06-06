@@ -13,9 +13,9 @@
  */
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-    char id[500],name[500],hoursWorked[500],salary[500];
+    /*char id[500],name[500],hoursWorked[500],salary[500];
     int contador=0;
-    Employee theEmployee;
+    Employee* theEmployee;
     Employee list[51];
 
 
@@ -55,7 +55,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         printf("%s - %d - %d\n", lista[i].nombre, lista[i].legajo, lista[i].nota);
        // break;
     }
-    return 1;
+    return 1;*/
 }
 
 /** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo binario).

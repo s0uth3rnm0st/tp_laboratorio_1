@@ -21,7 +21,7 @@
 
 int main()
 {
-    int option = 0;
+    /*int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
     do{
         switch(option)
@@ -32,6 +32,11 @@ int main()
         }
     }while(option != 10);
 
-    FILE *pFile;
+
+    FILE *pFile;*/
+
+    Employee* unEmpleado=employee_newParametros("101","Juan","2340");
+    mostrarEmpleado(unEmpleado);
+
     return 0;
 }
