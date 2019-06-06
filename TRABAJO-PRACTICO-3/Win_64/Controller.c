@@ -13,7 +13,19 @@
  */
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = 0;
+    if (path!=NULL&&pArrayListEmployee!=NULL)
+    {
+        printf("Archivo abierto exitosamente!!\n\n");
+        FILE* pFile = NULL;
+        pFile = fopen(path,"r");
+        if (pFile!=NULL)
+        {
+            retorno = parser_EmployeeFromText(pFile,pArrayListEmployee);
+        }
+        fclose(pFile);
+    }
+    return retorno;
 }
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
@@ -73,7 +85,28 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = 0;
+    if (pArrayListEmployee!=NULL)
+    {
+        int len = ll_len(pArrayListEmployee);
+        if (len>0)
+        {
+            int i;
+            Employee* aux = NULL;
+            //printEmpHeader();
+            for (i=0 ; i<len ; i++)
+            {
+                aux = (Employee*) ll_get(pArrayListEmployee,i);
+                mostrarEmpleado(aux);
+            }
+            if (i==len)
+            {
+                retorno = 1;
+            }
+        }
+
+    }
+    return retorno;
 }
 
 /** \brief Ordenar empleados

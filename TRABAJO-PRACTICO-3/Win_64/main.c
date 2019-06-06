@@ -3,6 +3,7 @@
 #include "LinkedList.h"
 #include "Controller.h"
 #include "Employee.h"
+#define ARCHIVO ".\\data.csv"
 
 /****************************************************
     Menu:
@@ -35,19 +36,12 @@ int main()
     FILE *pFile;
 
 
-    parser_EmployeeFromText(pFile,listaEmpleados);
+    //parser_EmployeeFromText(pFile,listaEmpleados);
 
     Employee* unEmpleado=employee_newParametros("101","Juan","140","25000"); //agregar en la linked list y ver si anda
-    mostrarEmpleado(unEmpleado);
-/*********************************************///Juan entrando a la linked list
-    ll_add(listaEmpleados , unEmpleado);
-    int lltam=ll_len(listaEmpleados);
-    printf("%d",lltam);
+    //mostrarEmpleado(unEmpleado);
 
-    int Juan=(int)ll_get(listaEmpleados,lltam);
-    printf("\n%d",Juan);
-/*********************************************/
-
-
+    controller_loadFromText(ARCHIVO,listaEmpleados);
+    controller_ListEmployee(listaEmpleados); /********ARREGLAR*******/
     return 0;
 }
