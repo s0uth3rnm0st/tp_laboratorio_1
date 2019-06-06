@@ -21,19 +21,21 @@
 
 int main()
 {
-    /*int option = 0;
+    int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
-    do{
+   /* do{
         switch(option)
         {
             case 1:
                 controller_loadFromText("data.csv",listaEmpleados);
                 break;
         }
-    }while(option != 10);
+    }while(option != 10);*/
+
+    FILE *pFile;
 
 
-    FILE *pFile;*/
+    parser_EmployeeFromText(pFile,listaEmpleados);
 
     Employee* unEmpleado=employee_newParametros("101","Juan","2340");
     mostrarEmpleado(unEmpleado);

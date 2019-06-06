@@ -13,7 +13,7 @@
  */
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-    /*char id[500],name[500],hoursWorked[500],salary[500];
+    char id[500],nombre[500],horasTrabajadas[500],sueldo[500];
     int contador=0;
     Employee* theEmployee;
     Employee list[51];
@@ -25,23 +25,23 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         exit(1);
     }
 
-    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,name,hoursWorked,salary); //es para la primer fila que suele tener todos char
+    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo); //es para la primer fila que suele tener todos char
 
 
-    printf("%s  -- %s -- %s -- %s",id,name,hoursWorked,salary);
+    printf("%s  -- %s -- %s -- %s",id,nombre,horasTrabajadas,sueldo);
     printf("\n");
     while(!feof(pFile))
     {
-        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,name,hoursWorked,salary);
+        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
 
-        printf("%d \t-- %s \t  -- %t \t-- %f",id,name,hoursWorked,salary);
+        printf("%d \t-- %s \t  -- %t \t-- %f",id,nombre,horasTrabajadas,sueldo);
         printf("\n");
 
-        strcpy(theEmployee.nombre,name);
-        theEmployee.id=atoi(id);
-        theEmployee.horasTrabajadas=atoi(hoursWorked);
-        theEmployee.sueldo=atof(salary);
-        list[contador]=theEmployee;
+        strcpy(theEmployee->nombre,nombre);
+        theEmployee->id=atoi(id);
+        theEmployee->horasTrabajadas=atoi(horasTrabajadas);
+        theEmployee->sueldo=atof(sueldo);
+        list[contador]=*theEmployee;
 
         contador++;
     }
@@ -50,12 +50,12 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     fclose(pFile);
 
     printf("\nESTRUCTURA: \n");
-    for(i=0; i<3; i++)
+    for(i=0; i<20; i++)
     {
-        printf("%s - %d - %d\n", lista[i].nombre, lista[i].legajo, lista[i].nota);
+        printf("%s - %d - %d\n", list[i].nombre, list[i].horasTrabajadas, list[i].id);
        // break;
     }
-    return 1;*/
+    return 1;
 }
 
 /** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo binario).
