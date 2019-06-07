@@ -110,3 +110,11 @@ void employee_delete(Employee* theEmployee)
 {
     free(theEmployee);
 }
+
+void employee_mostrarPrimeraLinea()
+{
+    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo); //es para la primer fila que suele tener todos char
+
+    printf("%s  -- %s -- %s -- %s",id,nombre,horasTrabajadas,sueldo);
+    printf("\n");
+}

@@ -18,16 +18,14 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     Employee* theEmployee=employee_new();
     Employee list[51]; //no se que hace
 
-    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo); //es para la primer fila que suele tener todos char
+    void employee_mostrarPrimeraLinea()
 
-    printf("%s  -- %s -- %s -- %s",id,nombre,horasTrabajadas,sueldo);
-    printf("\n");
     while(!feof(pFile))
     {
         fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
 
-        printf("%s \t-- %s \t  -- %s \t-- %s",id,nombre,horasTrabajadas,sueldo);
-        printf("\n");
+        //printf("%s \t-- %s \t  -- %s \t-- %s",id,nombre,horasTrabajadas,sueldo);
+        //printf("\n");
 
         strcpy(theEmployee->nombre,nombre);
         theEmployee->id=atoi(id);

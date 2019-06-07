@@ -42,6 +42,6 @@ int main()
     //mostrarEmpleado(unEmpleado);
 
     controller_loadFromText(ARCHIVO,listaEmpleados);
-    controller_ListEmployee(listaEmpleados); /********ARREGLAR*******/
+    //controller_ListEmployee(listaEmpleados); /********ARREGLAR*******/
     return 0;
 }
