@@ -42,6 +42,10 @@ int main()
     //mostrarEmpleado(unEmpleado);
 
     controller_loadFromText(ARCHIVO,listaEmpleados);
-    //controller_ListEmployee(listaEmpleados); /********ARREGLAR*******/
+    controller_ListEmployee(listaEmpleados); /********ARREGLAR*******/
+
+    int len;
+    len=ll_len(listaEmpleados);
+    printf("HAY %d ELEMENTOS EN LA LL\n",len);
     return 0;
 }

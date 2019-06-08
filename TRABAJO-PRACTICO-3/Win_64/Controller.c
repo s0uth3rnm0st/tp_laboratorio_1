@@ -37,6 +37,8 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
+
+
     return 1;
 }
 
@@ -86,25 +88,25 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
+
     if (pArrayListEmployee!=NULL)
     {
         int len = ll_len(pArrayListEmployee);
         if (len>0)
         {
             int i;
-            Employee* aux = NULL;
-            //printEmpHeader();
+            //Employee* aux = NULL;
+
             for (i=0 ; i<len ; i++)
             {
-                aux = (Employee*) ll_get(pArrayListEmployee,i);
-                mostrarEmpleado(aux);
+                Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
+                printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
             }
             if (i==len)
             {
                 retorno = 1;
             }
         }
-
     }
     return retorno;
 }

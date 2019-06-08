@@ -93,28 +93,9 @@ void employee_mostrarEmpleado(Employee* unEmpleado)
         isNull=0;
     }
 }
-/*
-void employee_mostrarArrayEmpleado(Employee* listing, int index, int len)
-{
-    for(index=0; index<len; index++)
-    {
-        printf(" %d  -%s \t\t- %d \t- %d\n", listing[index].id, listing[index].nombre, listing[index].horasTrabajadas, listing[index].sueldo);
-        // break;
-    }
-}
-*/
-
-
 
 void employee_delete(Employee* theEmployee)
 {
     free(theEmployee);
 }
 
-void employee_mostrarPrimeraLinea()
-{
-    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo); //es para la primer fila que suele tener todos char
-
-    printf("%s  -- %s -- %s -- %s",id,nombre,horasTrabajadas,sueldo);
-    printf("\n");
-}

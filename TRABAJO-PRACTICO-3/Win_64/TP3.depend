@@ -29,3 +29,33 @@
 
 1559908112 d:\1aaaaa\tp_laboratorio_1\trabajo-practico-3\win_64\controller.h
 
+1560001195 source:d:\1aaaaaa\tp_laboratorio_1\trabajo-practico-3\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	"Employee.h"
+
+1559995738 d:\1aaaaaa\tp_laboratorio_1\trabajo-practico-3\win_64\employee.h
+
+1559999998 source:d:\1aaaaaa\tp_laboratorio_1\trabajo-practico-3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1559995738 d:\1aaaaaa\tp_laboratorio_1\trabajo-practico-3\win_64\linkedlist.h
+
+1559995738 d:\1aaaaaa\tp_laboratorio_1\trabajo-practico-3\win_64\controller.h
+
+1560001390 source:d:\1aaaaaa\tp_laboratorio_1\trabajo-practico-3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560000902 source:d:\1aaaaaa\tp_laboratorio_1\trabajo-practico-3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+

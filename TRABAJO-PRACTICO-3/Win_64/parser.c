@@ -14,33 +14,26 @@
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
     char id[500],nombre[500],horasTrabajadas[500],sueldo[500];
-    int contador=0;
     Employee* theEmployee=employee_new();
-    Employee list[51]; //no se que hace
 
-    void employee_mostrarPrimeraLinea()
+    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
 
+    printf("%s \t-- %s \t  -- %s \t-- %s\n",id,nombre,horasTrabajadas,sueldo);
     while(!feof(pFile))
     {
-        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
+        theEmployee=employee_new();
 
-        //printf("%s \t-- %s \t  -- %s \t-- %s",id,nombre,horasTrabajadas,sueldo);
-        //printf("\n");
+        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
 
         strcpy(theEmployee->nombre,nombre);
         theEmployee->id=atoi(id);
         theEmployee->horasTrabajadas=atoi(horasTrabajadas);
         theEmployee->sueldo=atoi(sueldo);
-        //list[contador]=*theEmployee; // se rompe en el 66
-        ll_add(pArrayListEmployee,contador);
-        contador++; // se rompe en el 66
-    }
-    //int i;
 
-    //printf("\nESTRUCTURA: \n");
-    //printf(" ID  NOMBRE\t\tHORAS   SUELDO\n");
-    //fprintf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
-    //employee_mostrarArrayEmpleado(list,i,1);//va en el controller
+        ll_add(pArrayListEmployee,theEmployee);
+    }
+
+    fclose(pFile);
     return 1;
 
 }
@@ -54,6 +47,8 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
  */
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
+
+
 
     return 1;
 }
