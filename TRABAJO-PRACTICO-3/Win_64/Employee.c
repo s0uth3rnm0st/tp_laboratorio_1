@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "Employee.h"
+#include "biblioteca.h"
 
 Employee* employee_new()
 {
@@ -62,6 +63,25 @@ int employee_setNombre(Employee* this, char* nombre)
         strcpy(this->nombre,nombre);
         esCorrecto=1;
     }
+    return esCorrecto;
+}
+
+int employee_getNombre(Employee* pEmpleado, char* nombre)
+{
+    int retornoNombre=0;
+    if(pEmpleado!=NULL)
+    {
+        if(getString("ingrese el nombre: ",nombre)==0)
+        {
+            retornoNombre=0;
+        }
+        else
+        {
+            employee_setNombre(pEmpleado,nombre);
+            retornoNombre=1;
+        }
+    }
+    return retornoNombre;
 }
 
 int employee_setSueldo(Employee* this, int sueldo)

@@ -59,3 +59,42 @@
 	"LinkedList.h"
 	"Employee.h"
 
+1560111343 source:c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"biblioteca.h"
+
+1559848002 c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\linkedlist.h
+
+1560093509 c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\employee.h
+
+1560104630 source:c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	"Employee.h"
+	"biblioteca.h"
+
+1560111343 source:c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1560105543 c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\controller.h
+
+1560108920 source:c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560103902 c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\biblioteca.h
+
+1560103902 source:c:\programacion\tp_laboratorio_1\trabajo-practico-3\win_64\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	"biblioteca.h"
+

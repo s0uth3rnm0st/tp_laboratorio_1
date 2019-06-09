@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 #include "Employee.h"
+#include "biblioteca.h"
 
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
@@ -49,9 +50,45 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_addEmployee(LinkedList* pArrayListEmployee)
+int controller_addEmployee(char* path, LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH PARA PODER ABRIR EL ARCHIVO Y ESCRIBIR EN EL
 {
-    return 1;
+    int retorno = 0;
+    if (path!=NULL&&pArrayListEmployee!=NULL)
+    {
+        printf("Archivo abierto exitosamente!!\n\n");
+        FILE* pFile = NULL;
+        pFile = fopen(path,"a");
+        if (pFile!=NULL)
+        {
+            //retorno = parser_EmployeeFromText(pFile,pArrayListEmployee);
+            //char texto[]="1001,Ignacio,2,20000\n"; //usar getters con strcat
+            char id[50];
+            char nombre[50];
+            char horasTrabajadas[50];
+            char sueldo[50];
+            gets(id);
+            gets(nombre);
+            gets(horasTrabajadas);
+            gets(sueldo);
+
+            //char texto[500];
+            //texto=id;
+            strcat(id,",");
+            strcat(id,nombre);
+            strcat(id,",");
+            strcat(id,horasTrabajadas);
+            strcat(id,",");
+            strcat(id,sueldo);
+            strcat(id,"\n");
+
+            int largo= strlen(id);
+            fwrite(id, sizeof(char),largo,pFile);
+        }
+        fclose(pFile);
+        retorno=1;
+    }
+
+    return retorno;
 }
 
 /** \brief Modificar datos de empleado

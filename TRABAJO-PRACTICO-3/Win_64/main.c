@@ -24,6 +24,9 @@ int main()
 {
     int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
+    FILE *pFile;
+    Employee auxEmployee;
+    Employee* empleadoArray;
    /* do{
         switch(option)
         {
@@ -33,19 +36,22 @@ int main()
         }
     }while(option != 10);*/
 
-    FILE *pFile;
-
-
-    //parser_EmployeeFromText(pFile,listaEmpleados);
-
-    Employee* unEmpleado=employee_newParametros("101","Juan","140","25000"); //agregar en la linked list y ver si anda
-    //mostrarEmpleado(unEmpleado);
+    //Employee* unEmpleado=employee_newParametros("101","Juan","140","25000"); //agregar en la linked list y ver si anda
 
     controller_loadFromText(ARCHIVO,listaEmpleados);
-    controller_ListEmployee(listaEmpleados); /********ARREGLAR*******/
-
+    //controller_addEmployee(ARCHIVO,listaEmpleados);
+    controller_ListEmployee(listaEmpleados);
     int len;
     len=ll_len(listaEmpleados);
     printf("HAY %d ELEMENTOS EN LA LL\n",len);
+
+    /*empleadoArray=&auxEmployee;
+    char* nombre;
+    while(employee_getNombre(empleadoArray,nombre)==0)
+    {
+        printf("Error, re");
+    }
+
+    printf("%s\n",empleadoArray->nombre);*/
     return 0;
 }

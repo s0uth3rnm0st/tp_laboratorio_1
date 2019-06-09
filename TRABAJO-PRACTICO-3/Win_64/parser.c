@@ -13,27 +13,29 @@
  */
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-    char id[500],nombre[500],horasTrabajadas[500],sueldo[500];
+    char idStr[500],nombreStr[500],horasTrabajadasStr[500],sueldoStr[500];
+    int id,horasTrabajadas,sueldo;
     Employee* theEmployee=employee_new();
 
-    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
+    fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",idStr,nombreStr,horasTrabajadasStr,sueldoStr);
 
-    printf("%s \t-- %s \t  -- %s \t-- %s\n",id,nombre,horasTrabajadas,sueldo);
+    printf("%s \t-- %s \t  -- %s \t-- %s\n",idStr,nombreStr,horasTrabajadasStr,sueldoStr);
     while(!feof(pFile))
     {
         theEmployee=employee_new();
 
-        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
+        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",idStr,nombreStr,horasTrabajadasStr,sueldoStr);
 
-        strcpy(theEmployee->nombre,nombre);
-        theEmployee->id=atoi(id);
-        theEmployee->horasTrabajadas=atoi(horasTrabajadas);
-        theEmployee->sueldo=atoi(sueldo);
+        employee_setNombre(theEmployee,nombreStr);
+        id=atoi(idStr);
+        employee_setId(theEmployee,id);
+        horasTrabajadas=atoi(horasTrabajadasStr);
+        employee_setHorasTrabajadas(theEmployee,horasTrabajadas);
+        sueldo=atoi(sueldoStr);
+        employee_setSueldo(theEmployee,sueldo);
 
         ll_add(pArrayListEmployee,theEmployee);
     }
-
-    fclose(pFile);
     return 1;
 
 }
