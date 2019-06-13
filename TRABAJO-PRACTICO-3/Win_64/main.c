@@ -48,9 +48,10 @@ int main()
     printf("HAY %d ELEMENTOS EN LA LL\n",len);
 
 
-    controller_addEmployee(listaEmpleados);
+    //controller_addEmployee(listaEmpleados);
     controller_ListEmployee(listaEmpleados);
     controller_editEmployee(listaEmpleados);
+    controller_removeEmployee(listaEmpleados);
     controller_ListEmployee(listaEmpleados);
 
     len=ll_len(listaEmpleados);

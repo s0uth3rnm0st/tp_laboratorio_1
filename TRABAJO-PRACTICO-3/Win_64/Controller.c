@@ -134,7 +134,36 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = 0;
+
+    if (pArrayListEmployee!=NULL)
+    {
+        int len = ll_len(pArrayListEmployee);
+        if (len>0)
+        {
+            int i;
+            int id;
+            while(getInt("Ingrese el ID del empleado a modificar",&id)==0)
+            {
+                printf("Error, ingrese un dato valido");
+            }
+
+            for (i=0 ; i<len ; i++)
+            {
+                Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
+                //printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
+                if(id==aux->id)
+                {
+                    ll_remove(pArrayListEmployee,i);
+                }
+            }
+            if (i==len)
+            {
+                retorno = 1;
+            }
+        }
+    }
+    return retorno;
 }
 
 /** \brief Listar empleados
