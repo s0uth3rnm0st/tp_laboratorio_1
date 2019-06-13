@@ -62,7 +62,9 @@ int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH
         int* sueldo;
         int* horasTrabajadas;
         char* nombre;
-        employee_getId(theEmployee,id);//autoincremental
+        //employee_getId(theEmployee,id);//autoincremental
+        id=ll_len(pArrayListEmployee)+1;
+        employee_setId(theEmployee,id);
         employee_getNombre(theEmployee,&nombre);
         employee_getHorasTrabajadas(theEmployee,horasTrabajadas);
         employee_getSueldo(theEmployee,sueldo);
