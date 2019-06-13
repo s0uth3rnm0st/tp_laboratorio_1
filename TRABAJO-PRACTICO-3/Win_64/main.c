@@ -50,6 +50,8 @@ int main()
 
     controller_addEmployee(listaEmpleados);
     controller_ListEmployee(listaEmpleados);
+    controller_editEmployee(listaEmpleados);
+    controller_ListEmployee(listaEmpleados);
 
     len=ll_len(listaEmpleados);
 

@@ -52,11 +52,11 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH PARA PODER ABRIR EL ARCHIVO Y ESCRIBIR EN EL
 {
+    int retorno=0;
     Employee* theEmployee;
     if(pArrayListEmployee!=NULL)
     {
         theEmployee=employee_new();
-
         //employee_setId(theEmployee,1004);
         int* id;
         int* sueldo;
@@ -71,11 +71,10 @@ int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH
         //printf("%d--%s--%d--%d\n",theEmployee->id,theEmployee->nombre,theEmployee->horasTrabajadas,theEmployee->sueldo);
 
         ll_add(pArrayListEmployee,theEmployee);
+        retorno=1;
     }
 
-
-
-    return 1;
+    return retorno;
 }
 
 /** \brief Modificar datos de empleado
@@ -87,7 +86,43 @@ int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = 0;
+
+    if (pArrayListEmployee!=NULL)
+    {
+        int len = ll_len(pArrayListEmployee);
+        if (len>0)
+        {
+            int i;
+            int id;
+            while(getInt("Ingrese el ID del empleado a modificar",&id)==0)
+            {
+                printf("Error, ingrese un dato valido");
+            }
+
+            for (i=0 ; i<len ; i++)
+            {
+                Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
+                //printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
+                if(id==aux->id)
+                {
+                    int* id;
+                    int* sueldo;
+                    int* horasTrabajadas;
+                    char* nombre;
+                    id=ll_len(aux)+1;
+                    employee_getNombre(aux,&nombre);
+                    employee_getHorasTrabajadas(aux,horasTrabajadas);
+                    employee_getSueldo(aux,sueldo);
+                }
+            }
+            if (i==len)
+            {
+                retorno = 1;
+            }
+        }
+    }
+    return retorno;
 }
 
 /** \brief Baja de empleado
