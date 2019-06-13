@@ -50,45 +50,30 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_addEmployee(char* path, LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH PARA PODER ABRIR EL ARCHIVO Y ESCRIBIR EN EL
+int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH PARA PODER ABRIR EL ARCHIVO Y ESCRIBIR EN EL
 {
-    int retorno = 0;
-    if (path!=NULL&&pArrayListEmployee!=NULL)
+    Employee* theEmployee;
+    if(pArrayListEmployee!=NULL)
     {
-        printf("Archivo abierto exitosamente!!\n\n");
-        FILE* pFile = NULL;
-        pFile = fopen(path,"a");
-        if (pFile!=NULL)
-        {
-            //retorno = parser_EmployeeFromText(pFile,pArrayListEmployee);
-            //char texto[]="1001,Ignacio,2,20000\n"; //usar getters con strcat
-            char id[50];
-            char nombre[50];
-            char horasTrabajadas[50];
-            char sueldo[50];
-            gets(id);
-            gets(nombre);
-            gets(horasTrabajadas);
-            gets(sueldo);
+        theEmployee=employee_new();
 
-            //char texto[500];
-            //texto=id;
-            strcat(id,",");
-            strcat(id,nombre);
-            strcat(id,",");
-            strcat(id,horasTrabajadas);
-            strcat(id,",");
-            strcat(id,sueldo);
-            strcat(id,"\n");
+        //employee_setId(theEmployee,1004);
+        int* id;
+        int* sueldo;
+        int* horasTrabajadas;
+        char* nombre;
+        employee_getId(theEmployee,id);//autoincremental
+        employee_getNombre(theEmployee,&nombre);
+        employee_getHorasTrabajadas(theEmployee,horasTrabajadas);
+        employee_getSueldo(theEmployee,sueldo);
+        //printf("%d--%s--%d--%d\n",theEmployee->id,theEmployee->nombre,theEmployee->horasTrabajadas,theEmployee->sueldo);
 
-            int largo= strlen(id);
-            fwrite(id, sizeof(char),largo,pFile);
-        }
-        fclose(pFile);
-        retorno=1;
+        ll_add(pArrayListEmployee,theEmployee);
     }
 
-    return retorno;
+
+
+    return 1;
 }
 
 /** \brief Modificar datos de empleado

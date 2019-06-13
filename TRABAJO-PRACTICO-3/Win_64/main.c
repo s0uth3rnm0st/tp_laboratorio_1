@@ -38,11 +38,22 @@ int main()
 
     //Employee* unEmpleado=employee_newParametros("101","Juan","140","25000"); //agregar en la linked list y ver si anda
 
+
     controller_loadFromText(ARCHIVO,listaEmpleados);
-    //controller_addEmployee(ARCHIVO,listaEmpleados);
     controller_ListEmployee(listaEmpleados);
     int len;
     len=ll_len(listaEmpleados);
+
+    printf("LL:\n");
+    printf("HAY %d ELEMENTOS EN LA LL\n",len);
+
+
+    controller_addEmployee(listaEmpleados);
+    controller_ListEmployee(listaEmpleados);
+
+    len=ll_len(listaEmpleados);
+
+    printf("LL:\n");
     printf("HAY %d ELEMENTOS EN LA LL\n",len);
 
     /*empleadoArray=&auxEmployee;

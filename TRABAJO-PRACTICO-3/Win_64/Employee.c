@@ -45,6 +45,15 @@ int employee_setHorasTrabajadas(Employee* this, int horasTrabajadas)
     }
 }
 
+int employee_getHorasTrabajadas(Employee* this, int* horasTrabajadas)
+{
+    if(this!=NULL)
+    {
+        getInt("ingrese las horas trabajadas: ", &horasTrabajadas);
+        employee_setHorasTrabajadas(this,horasTrabajadas);
+    }
+}
+
 int employee_setId(Employee* this, int id)
 {
     int esCorrecto=0;
@@ -52,6 +61,15 @@ int employee_setId(Employee* this, int id)
     {
         this->id=id;
         esCorrecto=1;
+    }
+}
+
+int employee_getId(Employee* this,int* id)
+{
+    if(this!=NULL)
+    {
+        getInt("ingrese el id: ", &id);
+        employee_setId(this,id);
     }
 }
 
@@ -91,6 +109,15 @@ int employee_setSueldo(Employee* this, int sueldo)
     {
         this->sueldo=sueldo;
         esCorrecto=1;
+    }
+}
+
+int employee_getSueldo(Employee* this, int* sueldo)
+{
+    if(this!=NULL)
+    {
+        getInt("ingrese el sueldo: ", &sueldo);
+        employee_setSueldo(this,sueldo);
     }
 }
 
