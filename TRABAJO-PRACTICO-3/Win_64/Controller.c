@@ -65,7 +65,10 @@ int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH
         //employee_getId(theEmployee,id);//autoincremental
         id=ll_len(pArrayListEmployee)+1;
         employee_setId(theEmployee,id);
-        employee_getNombre(theEmployee,&nombre);
+        while(employee_getNombre(theEmployee,&nombre)==0)
+        {
+            printf("ERROR, re");
+        }
         employee_getHorasTrabajadas(theEmployee,horasTrabajadas);
         employee_getSueldo(theEmployee,sueldo);
         //printf("%d--%s--%d--%d\n",theEmployee->id,theEmployee->nombre,theEmployee->horasTrabajadas,theEmployee->sueldo);
@@ -111,7 +114,10 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                     int* horasTrabajadas;
                     char* nombre;
                     id=ll_len(aux)+1;
-                    employee_getNombre(aux,&nombre);
+                    while(employee_getNombre(aux,&nombre)==0)
+                    {
+                        printf("ERROR, re");
+                    }
                     employee_getHorasTrabajadas(aux,horasTrabajadas);
                     employee_getSueldo(aux,sueldo);
                 }
