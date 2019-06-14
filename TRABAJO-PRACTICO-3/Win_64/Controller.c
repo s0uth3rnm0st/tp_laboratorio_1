@@ -52,38 +52,46 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH PARA PODER ABRIR EL ARCHIVO Y ESCRIBIR EN EL
 {
-    int retorno=0;
-    Employee* theEmployee;
-    if(pArrayListEmployee!=NULL)
+    if(ll_isEmpty(pArrayListEmployee)==0)
     {
-        theEmployee=employee_new();
-        //employee_setId(theEmployee,1004);
-        int* id;
-        int* sueldo;
-        int* horasTrabajadas;
-        char* nombre;
-        //employee_getId(theEmployee,id);//autoincremental
-        id=ll_len(pArrayListEmployee)+1;
-        employee_setId(theEmployee,id);
-        while(employee_getNombre(theEmployee,&nombre)==0)
+        int retorno=0;
+        Employee* theEmployee;
+        if(pArrayListEmployee!=NULL)
         {
-            printf("ERROR, re");
-        }
-        while(employee_getHorasTrabajadas(theEmployee,horasTrabajadas)==0)
-        {
-            printf("ERROR, re");
-        }
-        while(employee_getSueldo(theEmployee,sueldo)==0)
-        {
-            printf("ERROR, re");
-        }
-        //printf("%d--%s--%d--%d\n",theEmployee->id,theEmployee->nombre,theEmployee->horasTrabajadas,theEmployee->sueldo);
+            theEmployee=employee_new();
+            //employee_setId(theEmployee,1004);
+            int* id;
+            int* sueldo;
+            int* horasTrabajadas;
+            char* nombre;
+            //employee_getId(theEmployee,id);//autoincremental
+            id=ll_len(pArrayListEmployee)+1;
+            employee_setId(theEmployee,id);
+            while(employee_getNombre(theEmployee,&nombre)==0)
+            {
+                printf("ERROR, re");
+            }
+            while(employee_getHorasTrabajadas(theEmployee,horasTrabajadas)==0)
+            {
+                printf("ERROR, re");
+            }
+            while(employee_getSueldo(theEmployee,sueldo)==0)
+            {
+                printf("ERROR, re");
+            }
+            //printf("%d--%s--%d--%d\n",theEmployee->id,theEmployee->nombre,theEmployee->horasTrabajadas,theEmployee->sueldo);
 
-        ll_add(pArrayListEmployee,theEmployee);
-        retorno=1;
+            ll_add(pArrayListEmployee,theEmployee);
+            retorno=1;
+        }
+
+        return retorno;
+    }
+    else
+    {
+        printf("aun no se cargo el archivo!!\n");
     }
 
-    return retorno;
 }
 
 /** \brief Modificar datos de empleado
@@ -96,50 +104,57 @@ int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
-
-    if (pArrayListEmployee!=NULL)
+    if(ll_isEmpty(pArrayListEmployee)==0)
     {
-        int len = ll_len(pArrayListEmployee);
-        if (len>0)
+        if (pArrayListEmployee!=NULL)
         {
-            int i;
-            int id;
-            while(getInt("Ingrese el ID del empleado a modificar: ",&id)==0)
+            int len = ll_len(pArrayListEmployee);
+            if (len>0)
             {
-                printf("Error, ingrese un dato valido");
-            }
-
-            for (i=0 ; i<len ; i++)
-            {
-                Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
-                //printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
-                if(id==aux->id)
+                int i;
+                int id;
+                while(getInt("Ingrese el ID del empleado a modificar: ",&id)==0)
                 {
-                    int* id;
-                    int* sueldo;
-                    int* horasTrabajadas;
-                    char* nombre;
-                    id=ll_len(aux)+1;
-                    while(employee_getNombre(aux,&nombre)==0)
+                    printf("Error, ingrese un dato valido");
+                }
+
+                for (i=0 ; i<len ; i++)
+                {
+                    Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
+                    //printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
+                    if(id==aux->id)
                     {
-                        printf("ERROR, re");
-                    }
-                    while(employee_getHorasTrabajadas(aux,horasTrabajadas)==0)
-                    {
-                        printf("ERROR, re");
-                    }
-                    while(employee_getSueldo(aux,sueldo)==0)
-                    {
-                        printf("ERROR, re");
+                        int* id;
+                        int* sueldo;
+                        int* horasTrabajadas;
+                        char* nombre;
+                        id=ll_len(aux)+1;
+                        while(employee_getNombre(aux,&nombre)==0)
+                        {
+                            printf("ERROR, re");
+                        }
+                        while(employee_getHorasTrabajadas(aux,horasTrabajadas)==0)
+                        {
+                            printf("ERROR, re");
+                        }
+                        while(employee_getSueldo(aux,sueldo)==0)
+                        {
+                            printf("ERROR, re");
+                        }
                     }
                 }
-            }
-            if (i==len)
-            {
-                retorno = 1;
+                if (i==len)
+                {
+                    retorno = 1;
+                }
             }
         }
     }
+    else
+    {
+       printf("aun no se cargo el archivo!!\n");
+    }
+
     return retorno;
 }
 
@@ -153,34 +168,42 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
-
-    if (pArrayListEmployee!=NULL)
+    if(ll_isEmpty(pArrayListEmployee)==0)
     {
-        int len = ll_len(pArrayListEmployee);
-        if (len>0)
+        if (pArrayListEmployee!=NULL)
         {
-            int i;
-            int id;
-            while(getInt("Ingrese el ID del empleado a dar de baja: ",&id)==0)
+            int len = ll_len(pArrayListEmployee);
+            if (len>0)
             {
-                printf("Error, ingrese un dato valido");
-            }
-
-            for (i=0 ; i<len ; i++)
-            {
-                Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
-                //printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
-                if(id==aux->id)
+                int i;
+                int id;
+                while(getInt("Ingrese el ID del empleado a dar de baja: ",&id)==0)
                 {
-                    ll_remove(pArrayListEmployee,i);
+                    printf("Error, ingrese un dato valido");
                 }
-            }
-            if (i==len)
-            {
-                retorno = 1;
+
+                for (i=0 ; i<len ; i++)
+                {
+                    Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
+                    //printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
+                    if(id==aux->id)
+                    {
+                        printf("Aca");
+                        ll_remove(pArrayListEmployee,i);
+                    }
+                }
+                if (i==len)
+                {
+                    retorno = 1;
+                }
             }
         }
     }
+    else
+    {
+        printf("aun no se cargo el archivo!!\n");
+    }
+
     return retorno;
 }
 
@@ -194,28 +217,39 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
-
-    if (pArrayListEmployee!=NULL)
+    if(ll_isEmpty(pArrayListEmployee)==0)
     {
-        int len = ll_len(pArrayListEmployee);
-        if (len>0)
+        if (pArrayListEmployee!=NULL)
         {
-            int i;
-            //Employee* aux = NULL;
+            int len = ll_len(pArrayListEmployee);
+            if (len>0)
+            {
+                int i;
+                //Employee* aux = NULL;
 
-            printf("ID--NOMBRE--HORAS--SUELDO\n");
-            for (i=0 ; i<len ; i++)
-            {
-                Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
-                printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
+                printf("ID--NOMBRE--HORAS--SUELDO\n");
+                for (i=0 ; i<len ; i++)
+                {
+                    Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
+                    printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);//no usar flechas
+                }
+                if (i==len)
+                {
+                    retorno = 1;
+                }
             }
-            if (i==len)
-            {
-                retorno = 1;
-            }
+            int llLen;
+            llLen=ll_len(pArrayListEmployee);
+            printf("HAY %d ELEMENTOS EN LA LL\n",llLen);
+            return retorno;
         }
     }
-    return retorno;
+    else
+    {
+        printf("aun no se cargo el archivo!!\n");
+    }
+
+
 }
 
 /** \brief Ordenar empleados

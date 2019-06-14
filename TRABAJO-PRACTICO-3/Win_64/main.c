@@ -66,10 +66,6 @@ int main()
 
             case 4:
             controller_ListEmployee(listaEmpleados);
-            int len;
-            len=ll_len(listaEmpleados);
-            printf("HAY %d ELEMENTOS EN LA LL\n",len);
-
             break;
 
             case 5:
