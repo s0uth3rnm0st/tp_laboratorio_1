@@ -69,8 +69,14 @@ int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH
         {
             printf("ERROR, re");
         }
-        employee_getHorasTrabajadas(theEmployee,horasTrabajadas);
-        employee_getSueldo(theEmployee,sueldo);
+        while(employee_getHorasTrabajadas(theEmployee,horasTrabajadas)==0)
+        {
+            printf("ERROR, re");
+        }
+        while(employee_getSueldo(theEmployee,sueldo)==0)
+        {
+            printf("ERROR, re");
+        }
         //printf("%d--%s--%d--%d\n",theEmployee->id,theEmployee->nombre,theEmployee->horasTrabajadas,theEmployee->sueldo);
 
         ll_add(pArrayListEmployee,theEmployee);
@@ -98,7 +104,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
         {
             int i;
             int id;
-            while(getInt("Ingrese el ID del empleado a modificar",&id)==0)
+            while(getInt("Ingrese el ID del empleado a modificar: ",&id)==0)
             {
                 printf("Error, ingrese un dato valido");
             }
@@ -118,8 +124,14 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                     {
                         printf("ERROR, re");
                     }
-                    employee_getHorasTrabajadas(aux,horasTrabajadas);
-                    employee_getSueldo(aux,sueldo);
+                    while(employee_getHorasTrabajadas(aux,horasTrabajadas)==0)
+                    {
+                        printf("ERROR, re");
+                    }
+                    while(employee_getSueldo(aux,sueldo)==0)
+                    {
+                        printf("ERROR, re");
+                    }
                 }
             }
             if (i==len)
@@ -149,7 +161,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
         {
             int i;
             int id;
-            while(getInt("Ingrese el ID del empleado a modificar",&id)==0)
+            while(getInt("Ingrese el ID del empleado a dar de baja: ",&id)==0)
             {
                 printf("Error, ingrese un dato valido");
             }
@@ -191,6 +203,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
             int i;
             //Employee* aux = NULL;
 
+            printf("ID--NOMBRE--HORAS--SUELDO\n");
             for (i=0 ; i<len ; i++)
             {
                 Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);

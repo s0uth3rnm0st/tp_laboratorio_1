@@ -47,11 +47,20 @@ int employee_setHorasTrabajadas(Employee* this, int horasTrabajadas)
 
 int employee_getHorasTrabajadas(Employee* this, int* horasTrabajadas)
 {
+    int retorno;
     if(this!=NULL)
     {
-        getInt("ingrese las horas trabajadas: ", &horasTrabajadas);
-        employee_setHorasTrabajadas(this,horasTrabajadas);
+        if(getInt("ingrese las horas trabajadas: ", &horasTrabajadas)==0)
+        {
+            retorno=0;
+        }
+        else
+        {
+            retorno=1;
+            employee_setHorasTrabajadas(this,horasTrabajadas);
+        }
     }
+    return retorno;
 }
 
 int employee_setId(Employee* this, int id)
@@ -114,11 +123,20 @@ int employee_setSueldo(Employee* this, int sueldo)
 
 int employee_getSueldo(Employee* this, int* sueldo)
 {
+    int retorno;
     if(this!=NULL)
     {
-        getInt("ingrese el sueldo: ", &sueldo);
-        employee_setSueldo(this,sueldo);
+        if(getInt("ingrese el sueldo: ", &sueldo)==0)
+        {
+            retorno=0;
+        }
+        else
+        {
+            retorno=1;
+            employee_setSueldo(this,sueldo);
+        }
     }
+    return retorno;
 }
 
 void mostrarEmpleado(Employee* unEmpleado)

@@ -15,11 +15,11 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
     char idStr[500],nombreStr[500],horasTrabajadasStr[500],sueldoStr[500];
     int id,horasTrabajadas,sueldo;
-    Employee* theEmployee=employee_new();
+    Employee* theEmployee;//=employee_new();
 
     fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",idStr,nombreStr,horasTrabajadasStr,sueldoStr);
 
-    printf("%s \t-- %s \t  -- %s \t-- %s\n",idStr,nombreStr,horasTrabajadasStr,sueldoStr);
+    //printf("%s \t-- %s \t  -- %s \t-- %s\n",idStr,nombreStr,horasTrabajadasStr,sueldoStr);
     while(!feof(pFile))
     {
         theEmployee=employee_new();
