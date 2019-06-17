@@ -55,6 +55,11 @@ static Node* getNode(LinkedList* this, int nodeIndex)
 {
     Node* pNode = NULL;
 
+    if(this!=NULL && nodeIndex<ll_len(this) && nodeIndex>0)
+    {
+        (int)pNode->pElement;
+    }
+
     return pNode;
 }
 
