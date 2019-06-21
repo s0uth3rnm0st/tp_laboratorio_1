@@ -53,14 +53,56 @@ int ll_len(LinkedList* this)
  */
 static Node* getNode(LinkedList* this, int nodeIndex)
 {
-    Node* pNode = NULL;
-
-    if(this!=NULL && nodeIndex<ll_len(this) && nodeIndex>0)
+    Node* retNode = NULL;
+    if (this!=NULL&&nodeIndex>=0)
     {
-        (int)pNode->pElement;
+        if (nodeIndex<(ll_len(this)))
+        {
+            int actualIndex = 0;
+            Node* auxNode = NULL;
+            auxNode = ll_get_fNode(this);
+            while (auxNode!=NULL&&actualIndex<nodeIndex)
+            {
+                auxNode = ll_get_nNode(auxNode);
+                actualIndex++;
+            }
+            if (actualIndex==nodeIndex&&auxNode!=NULL)
+            {
+                retNode = auxNode;
+            }
+        }
     }
+    return retNode;
+}
 
-    return pNode;
+Node* ll_get_fNode(LinkedList* this)//firstnode
+{
+    Node* retNode = NULL;
+    if (this!=NULL)
+    {
+        retNode = this->pFirstNode;
+    }
+    return retNode;
+}
+
+Node* ll_get_nNode(Node* this)//newnode
+{
+    Node* retNode = NULL;
+    if (this!=NULL)
+    {
+        retNode = this->pNextNode;
+    }
+    return retNode;
+}
+
+void* ll_get_NodeElement(Node* this)
+{
+    void* retPtr = NULL;
+    if (this!=NULL)
+    {
+        retPtr = this->pElement;
+    }
+    return retPtr;
 }
 
 /** \brief  Permite realizar el test de la funcion getNode la cual es privada
@@ -134,7 +176,20 @@ int ll_add(LinkedList* this, void* pElement)
 void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
-
+    if (this!=NULL&&index>(-1))
+    {
+        Node* auxNode = ll_get_fNode(this);
+        int currentIndex = 0;
+        while (auxNode!=NULL&&currentIndex<index)
+        {
+            auxNode = ll_get_nNode(auxNode);
+            currentIndex++;
+        }
+        if (currentIndex==index&&auxNode!=NULL)
+        {
+            returnAux = ll_get_NodeElement(auxNode);
+        }
+    }
     return returnAux;
 }
 

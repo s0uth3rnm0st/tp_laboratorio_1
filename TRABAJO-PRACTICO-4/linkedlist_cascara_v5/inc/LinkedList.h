@@ -37,6 +37,11 @@ struct LinkedList
 LinkedList* ll_newLinkedList(void);
 int ll_len(LinkedList* this);
 Node* test_getNode(LinkedList* this, int nodeIndex);
+/************************************/
+Node* ll_get_fNode(LinkedList* this);
+Node* ll_get_nNode(Node* this);
+void* ll_get_NodeElement(Node* this);
+/************************************/
 int test_addNode(LinkedList* this, int nodeIndex,void* pElement);
 int ll_add(LinkedList* this, void* pElement);
 void* ll_get(LinkedList* this, int index);
