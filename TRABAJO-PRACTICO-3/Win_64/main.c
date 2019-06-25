@@ -4,6 +4,7 @@
 #include "Controller.h"
 #include "Employee.h"
 #define ARCHIVO ".\\data.csv"
+#define ARCHIVOBIN ".\\data.bin"
 
 /****************************************************
     Menu:
@@ -41,11 +42,11 @@ int main()
     //Employee* unEmpleado=employee_newParametros("101","Juan","140","25000"); //agregar en la linked list y ver si anda
     while(exit==1)
     {
-        printf("1.ALTA\n2.BAJA\n3.MODIFICAR\n4.Mostrar\n5.CARGAR DESDE EL ARCHIVO\n6.SALIR\n\n");
+        printf("1.ALTA\n2.BAJA\n3.MODIFICAR\n4.MOSTRAR\n5.CARGAR DESDE EL CSV\n6.CARGAR DESDE EL BINARIO\n7.GUARDAR EN CSV\n8.GUARDAR EN BINARIO\n9.SALIR\n\n");
         while(!pedirOpcionMenu("Ingrese el numero de la opcion: ",opcionChar))
         {
             printf("OPCION INCORRECTA!! debe ser un numero.\n");
-            printf("1.ALTA\n2.BAJA\n3.MODIFICAR\n4.Mostrar\n5.CARGAR DESDE EL ARCHIVO\n6.SALIR\n\n");
+            printf("1.ALTA\n2.BAJA\n3.MODIFICAR\n4.MOSTRAR\n5.CARGAR DESDE EL CSV\n6.CARGAR DESDE EL BINARIO\n7.GUARDAR EN CSV\n8.GUARDAR EN BINARIO\n9.SALIR\n\n");
         }
 
         opcion=atoi(opcionChar);
@@ -73,6 +74,18 @@ int main()
             break;
 
             case 6:
+            controller_loadFromBinary(&ARCHIVOBIN,listaEmpleados);
+            break;
+
+            case 7:
+            controller_saveAsText(&ARCHIVO,listaEmpleados);
+            break;
+
+            case 8:
+            controller_saveAsBinary(&ARCHIVOBIN,listaEmpleados);
+            break;
+
+            case 9:
             exit = 0;
             break;
 

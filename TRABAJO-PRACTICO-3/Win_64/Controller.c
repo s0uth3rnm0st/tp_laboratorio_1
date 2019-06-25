@@ -38,8 +38,18 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
+    FILE* pFile;
 
+    pFile=fopen(path,"rb");
 
+    if(pFile==NULL)
+    {
+        printf("\nError al leer el archivo\n");
+    }
+    else
+    {
+        parser_EmployeeFromBinary(pFile,pArrayListEmployee);
+    }
     return 1;
 }
 
@@ -118,6 +128,11 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                     printf("Error, ingrese un dato valido");
                 }
 
+                if(id>len)
+                {
+                    printf("empleado inexistente!!\n");
+                }
+
                 for (i=0 ; i<len ; i++)
                 {
                     Employee* aux = (Employee*) ll_get(pArrayListEmployee,i);
@@ -180,6 +195,11 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
                 while(getInt("Ingrese el ID del empleado a dar de baja: ",&id)==0)
                 {
                     printf("Error, ingrese un dato valido");
+                }
+
+                if(id>len)
+                {
+                    printf("empleado inexistente!!\n");
                 }
 
                 for (i=0 ; i<len ; i++)
@@ -249,8 +269,6 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
     {
         printf("aun no se cargo el archivo!!\n");
     }
-
-
 }
 
 /** \brief Ordenar empleados
@@ -262,6 +280,8 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
+    //ll_sort(pArrayListEmployee,)
+
     return 1;
 }
 
@@ -274,6 +294,34 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
+   /* FILE* pFile;
+    Employee* unEmpleado;
+    int i;
+    int len;
+
+    pFile=fopen(path,"w");
+
+    if(pFile==NULL)
+    {
+        printf("ERROR al guardar el archivo!!");
+        exit(EXIT_FAILURE);
+    }
+    else
+    {
+        len=ll_len(pArrayListEmployee);
+
+        for(i=0; i<len; i++)
+        {
+            unEmpleado=employee_new();
+            unEmpleado=ll_get(pArrayListEmployee,i);
+        }
+
+        printf("Datos guardados correctamente\n");
+
+        fclose(pFile);
+
+    }*/
+
     return 1;
 }
 
@@ -286,6 +334,35 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
+    FILE* pFile;
+    Employee* unEmpleado;
+    int i;
+    int len;
+
+    pFile=fopen(path,"wb");
+
+    if(pFile==NULL)
+    {
+        printf("ERROR al guardar el archivo!!");
+        exit(EXIT_FAILURE);
+    }
+    else
+    {
+        len=ll_len(pArrayListEmployee);
+
+        for(i=0; i<len; i++)
+        {
+            unEmpleado=(Employee*)ll_get(pArrayListEmployee,i);
+
+            fwrite(unEmpleado,sizeof(Employee),1,pFile);
+        }
+
+        printf("Datos guardados correctamente\n");
+
+        fclose(pFile);
+
+    }
+
     return 1;
 }
 
