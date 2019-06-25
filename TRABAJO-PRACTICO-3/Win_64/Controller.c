@@ -188,8 +188,9 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
                     //printf("%d--%s--%d--%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
                     if(id==aux->id)
                     {
-                        printf("Aca");
+                        //printf("Aca");
                         ll_remove(pArrayListEmployee,i);
+                        break;
                     }
                 }
                 if (i==len)
