@@ -48,6 +48,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
     }
     else
     {
+        printf("Archivo abierto exitosamente!!\n\n");
         parser_EmployeeFromBinary(pFile,pArrayListEmployee);
     }
     return 1;
@@ -77,15 +78,15 @@ int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH
             //employee_getId(theEmployee,id);//autoincremental
             id=ll_len(pArrayListEmployee)+1;
             employee_setId(theEmployee,id);
-            while(employee_getNombre(theEmployee,&nombre)==0)
+            while(employee_writeNombre(theEmployee,&nombre)==0)
             {
                 printf("ERROR, re");
             }
-            while(employee_getHorasTrabajadas(theEmployee,horasTrabajadas)==0)
+            while(employee_writeHorasTrabajadas(theEmployee,horasTrabajadas)==0)
             {
                 printf("ERROR, re");
             }
-            while(employee_getSueldo(theEmployee,sueldo)==0)
+            while(employee_writeSueldo(theEmployee,sueldo)==0)
             {
                 printf("ERROR, re");
             }
@@ -99,7 +100,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee) //AGREGADO PARAM PATH
     }
     else
     {
-        printf("aun no se cargo el archivo!!\n");
+        printf("Aun no se cargo el archivo o esta vacio!!\n");
     }
 
 }
@@ -144,15 +145,15 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                         int* horasTrabajadas;
                         char* nombre;
                         id=ll_len(aux)+1;
-                        while(employee_getNombre(aux,&nombre)==0)
+                        while(employee_writeNombre(aux,&nombre)==0)
                         {
                             printf("ERROR, re");
                         }
-                        while(employee_getHorasTrabajadas(aux,horasTrabajadas)==0)
+                        while(employee_writeHorasTrabajadas(aux,horasTrabajadas)==0)
                         {
                             printf("ERROR, re");
                         }
-                        while(employee_getSueldo(aux,sueldo)==0)
+                        while(employee_writeSueldo(aux,sueldo)==0)
                         {
                             printf("ERROR, re");
                         }
@@ -167,7 +168,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     }
     else
     {
-       printf("aun no se cargo el archivo!!\n");
+       printf("Aun no se cargo el archivo o esta vacio!!\n");
     }
 
     return retorno;
@@ -222,7 +223,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
     }
     else
     {
-        printf("aun no se cargo el archivo!!\n");
+        printf("Aun no se cargo el archivo o esta vacio!!\n");
     }
 
     return retorno;
@@ -267,7 +268,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
     }
     else
     {
-        printf("aun no se cargo el archivo!!\n");
+        printf("Aun no se cargo el archivo o esta vacio!!\n");
     }
 }
 
@@ -294,33 +295,46 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
-   /* FILE* pFile;
+    FILE *pFile;
     Employee* unEmpleado;
     int i;
     int len;
 
     pFile=fopen(path,"w");
 
+
+
     if(pFile==NULL)
     {
-        printf("ERROR al guardar el archivo!!");
-        exit(EXIT_FAILURE);
+        printf("ERROR al guardar el archivo!!\n");
+        //exit(EXIT_FAILURE);
     }
     else
     {
         len=ll_len(pArrayListEmployee);
 
-        for(i=0; i<len; i++)
+        if(len!=0)
         {
-            unEmpleado=employee_new();
-            unEmpleado=ll_get(pArrayListEmployee,i);
+            fprintf(pFile,"id,nombre,horas trabajadas,sueldo\n");
+
+            for(i=0;i<len;i++)
+            {
+                unEmpleado=employee_new();
+                unEmpleado=ll_get(pArrayListEmployee,i);
+                fprintf(pFile,"%d,%s,%d,%d\n",unEmpleado->id,unEmpleado->nombre,unEmpleado->horasTrabajadas,unEmpleado->sueldo);
+            }
+            printf("Datos guardados correctamente!\n");
+        }
+        else
+        {
+            printf("El archivo NO debe estar vacio!!\n");
         }
 
-        printf("Datos guardados correctamente\n");
+    }
 
-        fclose(pFile);
 
-    }*/
+    fclose(pFile);
+
 
     return 1;
 }
@@ -349,20 +363,22 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
     else
     {
         len=ll_len(pArrayListEmployee);
-
-        for(i=0; i<len; i++)
+        if(len!=0)
         {
-            unEmpleado=(Employee*)ll_get(pArrayListEmployee,i);
+            for(i=0; i<len; i++)
+            {
+                unEmpleado=(Employee*)ll_get(pArrayListEmployee,i);
 
-            fwrite(unEmpleado,sizeof(Employee),1,pFile);
+                fwrite(unEmpleado,sizeof(Employee),1,pFile);
+            }
+            printf("Datos guardados correctamente!\n");
         }
-
-        printf("Datos guardados correctamente\n");
-
-        fclose(pFile);
-
+        else
+        {
+            printf("El archivo NO debe estar vacio!!\n");
+        }
     }
-
+    fclose(pFile);
     return 1;
 }
 

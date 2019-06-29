@@ -47,6 +47,11 @@ int employee_setHorasTrabajadas(Employee* this, int horasTrabajadas)
 
 int employee_getHorasTrabajadas(Employee* this, int* horasTrabajadas)
 {
+
+}
+
+int employee_writeHorasTrabajadas(Employee* this, int* horasTrabajadas)
+{
     int retorno;
     if(this!=NULL)
     {
@@ -75,11 +80,7 @@ int employee_setId(Employee* this, int id)
 
 int employee_getId(Employee* this,int* id)
 {
-    if(this!=NULL)
-    {
-        getInt("ingrese el id: ", &id);
-        employee_setId(this,id);
-    }
+
 }
 
 int employee_setNombre(Employee* this, char* nombre)
@@ -94,6 +95,11 @@ int employee_setNombre(Employee* this, char* nombre)
 }
 
 int employee_getNombre(Employee* pEmpleado, char* nombre)
+{
+
+}
+
+int employee_writeNombre(Employee* pEmpleado, char* nombre)
 {
     int retornoNombre=0;
     if(pEmpleado!=NULL)
@@ -122,6 +128,11 @@ int employee_setSueldo(Employee* this, int sueldo)
 }
 
 int employee_getSueldo(Employee* this, int* sueldo)
+{
+
+}
+
+int employee_writeSueldo(Employee* this, int* sueldo)
 {
     int retorno;
     if(this!=NULL)
