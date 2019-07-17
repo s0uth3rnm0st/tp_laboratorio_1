@@ -6,16 +6,16 @@
 int getInt(char text[],int* input)
 {
     char aux[80];
-    int flag=1;
+    int flag=0;
 
     printf("%s",text);
     gets(aux);
     int i;
     for(i=0;i<strlen(aux);i++)
     {
-        if(aux[i]<'0' || aux[i]>'9')
+        if((aux[i]>='0' || aux[i]<='9'))
         {
-            flag=0;
+            flag=1;
             break;
         }
     }
@@ -35,7 +35,7 @@ int getInt(char text[],int* input)
 int getFloat(char text[],float* input)
 {
     char aux[80];
-    int flag=1;
+    int flag=0;
     int contador=0;
 
     printf("%s",text);
@@ -43,10 +43,10 @@ int getFloat(char text[],float* input)
     int i;
     for(i=0;i<strlen(aux);i++)
     {
-        if((aux[i]<'0' || aux[i]>'9') && aux[i]!='.')
+        if((aux[i]>='0' || aux[i]<='9') || aux[i]=='.')
         {
-            flag=0;
-            break;
+            flag=1;
+            //break;
         }
         if(aux[i]=='.')
         {
@@ -70,7 +70,7 @@ int getFloat(char text[],float* input)
     return flag;
 }
 
-int getString_NoSpaces(char text[],char* input)
+int getString_Spaces(char text[],char* input)
 {
     int flag=0;
     char aux[80];
@@ -91,7 +91,39 @@ int getString_NoSpaces(char text[],char* input)
     {
         strcpy(input,aux);
     }
+    else
+    {
+        printf("ERROR\n");
+    }
 
+
+}
+
+int getString_NoSpaces(char text[],char* input)
+{
+    int flag=0;
+    char aux[80];
+    printf("%s",text);
+    gets(aux);
+    //printf("%s",aux);
+
+    int i;
+    for(i=0;i<strlen(aux);i++)
+    {
+        if(((aux[i]>='a' && aux[i]<='z') || (aux[i]>='A' && aux[i]<='Z')) && aux[i]!='\0') //SIGUE CONTANDO ESPACIOS, ARREGLAR
+        {
+            flag=1;
+        }
+    }
+
+    if(flag==1)
+    {
+        strcpy(input,aux);
+    }
+    else
+    {
+        printf("ERROR\n");
+    }
 
 }
 
