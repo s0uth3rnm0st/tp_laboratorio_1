@@ -13,10 +13,13 @@ int main()
            \n*EL ENTERO: %d\
            \n****************\n",a);
 
-    while(getFloat("ingrese un float:  ",&b)==0);
+    while(getFloat("ingrese un float: ",&b)==0);
     printf("****************\
            \n*EL FLOAT: %.2f\
            \n****************",b);
+
+    char* jijo;
+    getString_NoSpaces("ingrese",jijo);
 
     return 0;
 }

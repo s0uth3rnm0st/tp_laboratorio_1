@@ -15,14 +15,18 @@ int getInt(char text[],int* input)
     {
         if(aux[i]<'0' || aux[i]>'9')
         {
-            printf("ERROR\n");
             flag=0;
             break;
         }
     }
+
     if(flag==1)
     {
         *input=atoi(aux);
+    }
+    else
+    {
+        printf("ERROR\n");
     }
 
     return flag;
@@ -53,6 +57,7 @@ int getFloat(char text[],float* input)
     {
         flag=0;
     }
+
     if(flag==1)
     {
         *input=atof(aux);
@@ -63,5 +68,30 @@ int getFloat(char text[],float* input)
     }
 
     return flag;
+}
+
+int getString_NoSpaces(char text[],char* input)
+{
+    int flag=0;
+    char aux[80];
+    printf("%s",text);
+    gets(aux);
+    //printf("%s",aux);
+
+    int i;
+    for(i=0;i<strlen(aux);i++)
+    {
+        if((aux[i]>='a' && aux[i]<='z') || (aux[i]>='A' && aux[i]<='Z'))
+        {
+            flag=1;
+        }
+    }
+
+    if(flag==1)
+    {
+        strcpy(input,aux);
+    }
+
+
 }
 

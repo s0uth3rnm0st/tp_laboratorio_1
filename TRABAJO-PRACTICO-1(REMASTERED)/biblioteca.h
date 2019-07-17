@@ -5,5 +5,6 @@
 
 int getInt(char text[],int* input);
 int getFloat(char text[],float* input);
+int getString_NoSpaces(char text[],char* input);
 
 #endif // BIBLIOTECA_H_INCLUDED

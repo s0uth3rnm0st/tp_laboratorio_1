@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1563300441 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\biblioteca.c
+1563392707 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\biblioteca.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	"biblioteca.h"
 
-1563299666 c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\biblioteca.h
+1563392054 c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\biblioteca.h
 	<string.h>
 	<stdio.h>
 
-1563300258 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\main.c
+1563392719 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\main.c
 	"biblioteca.h"
 	<stdlib.h>
 
