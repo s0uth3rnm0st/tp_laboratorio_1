@@ -5,17 +5,26 @@
 
 int menu(char* text,char* option,int* min, int* max)
 {
+    int flag=1;
     int aux;
-    while(getString_IntNumber("Ingrese La OPCION: ",option)==0)
+
+    if(getString_IntNumber("Ingrese La OPCION: ",option)==0)
     {
-       printf("ingrese una opcion valida!!\n");
+       flag=0;
     }
 
     aux=atoi(option);
-    while(aux<min || aux>max)
+    if(aux<min || aux>max)
     {
-        printf("ERROR, ingrese una opcion valida!!\n");
+        flag=0;
     }
+
+    if(flag==0)
+    {
+        printf("Ingrese una opcion valida!!\n");
+    }
+
+    return flag;
 }
 
 int getInt(char* text,int* input) //no funciona con asd2 por ejemplo
