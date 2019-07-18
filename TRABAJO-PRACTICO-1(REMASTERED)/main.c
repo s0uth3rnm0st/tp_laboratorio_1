@@ -7,10 +7,12 @@ int main()
 
     int a;
     float b;
-    char* c;
+    char* c="";
     //char* d; ERROR AL DEFINIR VARIAS VARIABLES CHAR*
 
-    while(getInt("ingrese un entero: ",&a)==0);
+    menu("ingrese opcion: ",c,1,4);
+
+    /*while(getInt("ingrese un entero: ",&a)==0);
     printf("****************\
            \n*EL ENTERO: %d\
            \n****************\n",a);
@@ -29,6 +31,11 @@ int main()
     printf("****************\
            \n*LA STRING: %s\
            \n****************\n",c);
+
+    while(getString_IntNumber("Ingrese una string (Numeros Enteros): ",c)==0);
+    printf("****************\
+           \n*LA STRING: %s\
+           \n****************\n",c);*/
 
     return 0;
 }

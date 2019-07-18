@@ -3,7 +3,22 @@
 #include <stdlib.h>
 #include "biblioteca.h"
 
-int getInt(char text[],int* input)
+int menu(char* text,char* option,int* min, int* max)
+{
+    int aux;
+    while(getString_IntNumber("Ingrese La OPCION: ",option)==0)
+    {
+       printf("ingrese una opcion valida!!\n");
+    }
+
+    aux=atoi(option);
+    while(aux<min || aux>max)
+    {
+        printf("ERROR, ingrese una opcion valida!!\n");
+    }
+}
+
+int getInt(char* text,int* input) //no funciona con asd2 por ejemplo
 {
     char aux[80];
     int flag=0;
@@ -13,10 +28,9 @@ int getInt(char text[],int* input)
     int i;
     for(i=0;i<strlen(aux);i++)
     {
-        if((aux[i]>='0' || aux[i]<='9'))
+        if((aux[i]>='0' && aux[i]<='9'))
         {
             flag=1;
-            break;
         }
     }
 
@@ -32,7 +46,7 @@ int getInt(char text[],int* input)
     return flag;
 }
 
-int getFloat(char text[],float* input)
+int getFloat(char* text,float* input) //no funciona con asd2 por ejemplo ni con "." solamente
 {
     char aux[80];
     int flag=0;
@@ -43,7 +57,7 @@ int getFloat(char text[],float* input)
     int i;
     for(i=0;i<strlen(aux);i++)
     {
-        if((aux[i]>='0' || aux[i]<='9') || aux[i]=='.')
+        if((aux[i]>='0' && aux[i]<='9') || aux[i]=='.')
         {
             flag=1;
             //break;
@@ -70,7 +84,7 @@ int getFloat(char text[],float* input)
     return flag;
 }
 
-int getString_Spaces(char text[],char* input)
+int getString_Spaces(char* text,char* input)
 {
     int flag=0;
     char aux[80];
@@ -96,24 +110,32 @@ int getString_Spaces(char text[],char* input)
         printf("ERROR\n");
     }
 
-
+    return flag;
 }
 
-int getString_NoSpaces(char text[],char* input)
+int getString_NoSpaces(char* text,char* input) //no funciona al poner " " solamente
 {
-    int flag=0;
+    int flag=1;
     char aux[80];
+    int contador=0;
     printf("%s",text);
+    fflush(stdin);
     gets(aux);
     //printf("%s",aux);
 
     int i;
     for(i=0;i<strlen(aux);i++)
     {
-        if(((aux[i]>='a' && aux[i]<='z') || (aux[i]>='A' && aux[i]<='Z')) && aux[i]!='\0') //SIGUE CONTANDO ESPACIOS, ARREGLAR
+        contador++;
+        if((aux[i]<'a' || aux[i]>'z') && (aux[i]<'A' || aux[i]>'Z'))
         {
-            flag=1;
+            flag=0;
+            break;
         }
+    }
+    if(contador<1)
+    {
+        flag=0;
     }
 
     if(flag==1)
@@ -125,5 +147,41 @@ int getString_NoSpaces(char text[],char* input)
         printf("ERROR\n");
     }
 
+}
+
+int getString_IntNumber(char* text,char* input)
+{
+    int flag=1;
+    char aux[80];
+    int contador=0;
+    printf("%s",text);
+    fflush(stdin);
+    gets(aux);
+
+    int i;
+    for(i=0;i<strlen(aux);i++)
+    {
+        contador++;
+        if((aux[i]<'0' || aux[i]>'9'))
+        {
+            flag=0;
+            break;
+        }
+    }
+    if(contador<1)
+    {
+        flag=0;
+    }
+
+    if(flag==1)
+    {
+        strcpy(input,aux);
+    }
+    else
+    {
+        printf("ERROR\n");
+    }
+
+    return flag;
 }
 
