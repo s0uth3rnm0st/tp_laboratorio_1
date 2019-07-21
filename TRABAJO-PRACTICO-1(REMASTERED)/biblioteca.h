@@ -10,5 +10,6 @@ int getFloat(char* text,float* input);
 int getString_Spaces(char* text,char* input);
 int getString_NoSpaces(char* text,char* input);
 int getString_IntNumber(char* text,char* input);
+float factorialNum(float* n);
 
 #endif // BIBLIOTECA_H_INCLUDED

@@ -8,6 +8,7 @@ int menu(char* text,char* option,int* min, int* max)
     int flag=1;
     int aux;
 
+    printf("%s",text);
     if(getString_IntNumber("Ingrese La OPCION: ",option)==0)
     {
        flag=0;
@@ -22,6 +23,11 @@ int menu(char* text,char* option,int* min, int* max)
     if(flag==0)
     {
         printf("Ingrese una opcion valida!!\n");
+    }
+
+    if(flag==1)
+    {
+        flag=aux;
     }
 
     return flag;
@@ -192,5 +198,24 @@ int getString_IntNumber(char* text,char* input)
     }
 
     return flag;
+}
+
+float factorialNum(float* n)
+{
+    float resp;
+    printf("%f",n);
+
+    resp = *n * 3;
+    //resp = *n * factorialNum(&n-1);
+
+    if(n==1)
+    {
+        resp=1;
+    }                                                       //ARREGLAR
+    else
+    {
+        printf("no");
+    }
+    return resp;
 }
 

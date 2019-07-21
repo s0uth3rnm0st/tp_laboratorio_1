@@ -1,41 +1,61 @@
+#include "tester.h"
 #include "biblioteca.h"
 #include <stdlib.h>
 
+
+
 int main()
 {
-    printf("Hello world!\n");
+    //test();
+    float num1;
+    float num2;
+    float suma;
+    float resta;
+    float multiplicacion;
+    float division;
+    float factorial;
+    char option[50];
+    int exit=0;
 
-    int a;
-    float b;
-    char c[50];
-    //char* d; ERROR AL DEFINIR VARIAS VARIABLES CHAR*
+    do
+    {
+        switch(menu("1.Ingresar operando A\
+             \n2.Ingresar operando B\
+             \n3.Calcular todas las operaciones\
+             \n4.Informar resultados\
+             \n5.Salir\n",option,1,5))
+        {
+            case 1:
+                while(getFloat("operando A: ",&num1)==0);
+                break;
 
-    while(menu("ingrese opcion: ",c,1,4)==0);
+            case 2:
+                while(getFloat("operando B: ",&num2)==0);
+                break;
 
-    /*while(getInt("ingrese un entero: ",&a)==0);
-    printf("****************\
-           \n*EL ENTERO: %d\
-           \n****************\n",a);
+            case 3:
+                suma=num1+num2;
+                resta=num1-num2;
+                multiplicacion=num1*num2;
+                division=num1/num2;
+                factorial=factorialNum(&num1);//no se carga bien el parametro!!
+                break;
 
-    while(getFloat("ingrese un float: ",&b)==0);
-    printf("****************\
-           \n*EL FLOAT: %.2f\
-           \n****************\n",b);
+            case 4:
+                printf("A+B = %f\nA-B = %f\nA*B = %f\nA/B = %f\nA! = %f\n",suma,resta,multiplicacion,division,factorial);
+                break;
 
-    while(getString_Spaces("Ingrese una string (letras con espacios): ",c)==0);
-    printf("****************\
-           \n*LA STRING: %s\
-           \n****************\n",c);
+            case 5:
+                exit=1;
+                break;
+        }
+    system("pause");
+    system("cls");
 
-    while(getString_NoSpaces("Ingrese una string (letras sin espacios): ",c)==0);
-    printf("****************\
-           \n*LA STRING: %s\
-           \n****************\n",c);
+    }while(exit==0);
 
-    while(getString_IntNumber("Ingrese una string (Numeros Enteros): ",c)==0);
-    printf("****************\
-           \n*LA STRING: %s\
-           \n****************\n",c);*/
 
     return 0;
 }
+
+

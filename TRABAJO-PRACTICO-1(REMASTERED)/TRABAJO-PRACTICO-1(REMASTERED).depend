@@ -1,15 +1,16 @@
 # depslib dependency file v1.0
-1563483426 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\biblioteca.c
+1563736484 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\biblioteca.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	"biblioteca.h"
 
-1563483426 c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\biblioteca.h
+1563735925 c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\biblioteca.h
 	<string.h>
 	<stdio.h>
 
-1563483556 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\main.c
+1563735976 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\main.c
+	"tester.h"
 	"biblioteca.h"
 	<stdlib.h>
 
@@ -21,6 +22,17 @@
 	"libraryTest.h"
 
 1563410454 c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\librarytest.h
+	<string.h>
+	<stdio.h>
+
+1563732631 source:c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\tester.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"biblioteca.h"
+	"tester.h"
+
+1563732679 c:\programacion\tp_laboratorio_1\trabajo-practico-1(remastered)\tester.h
 	<string.h>
 	<stdio.h>
 
