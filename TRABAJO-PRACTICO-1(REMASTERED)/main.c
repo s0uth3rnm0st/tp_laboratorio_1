@@ -38,11 +38,11 @@ int main()
                 resta=num1-num2;
                 multiplicacion=num1*num2;
                 division=num1/num2;
-                factorial=factorialNum(&num1);//no se carga bien el parametro!!
+                //factorial=factorialNum(&num1);//no se carga bien el parametro!!
                 break;
 
             case 4:
-                printf("A+B = %f\nA-B = %f\nA*B = %f\nA/B = %f\nA! = %f\n",suma,resta,multiplicacion,division,factorial);
+                printf("A+B = %f\nA-B = %f\nA*B = %f\nA/B = %f\n",suma,resta,multiplicacion,division);
                 break;
 
             case 5:
